@@ -1,0 +1,98 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\OrderController;
+
+use App\Http\Controllers\CartController;
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+// multi auth
+// ADMIN routes
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+
+    Route::get('dashboard', [CategoryController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('add-category', [CategoryController::class, 'create'])->name('admin.category');
+    Route::post('Addcategory', [CategoryController::class, 'store'])->name('admin.upload-category');
+    Route::get('category-list', [CategoryController::class, 'index'])->name('admin.view-category');
+    Route::get('edit-category/{id}', [CategoryController::class, 'edit'])->name('admin.edit-category');
+    Route::post('update-category/{id}', [CategoryController::class, 'update'])->name('admin.update-category');
+
+    Route::get('manage-orders', [AdminController::class, 'manageOrders']);
+    Route::get('customers', [AdminController::class, 'customers']);
+    Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+
+    Route::get('product-list', [ProductController::class, 'index'])->name('admin.product-list');
+    Route::get('add-product', [ProductController::class, 'create'])->name('admin.add-product');
+    Route::post('create-product', [ProductController::class, 'store'])->name('admin.create-product');
+    Route::get('edit-product/{id}', [ProductController::class, 'edit'])->name('admin.edit-product');
+    Route::post('update-product/{id}', [ProductController::class, 'update'])->name('admin.update-product');
+
+    Route::get('manage-orders', [AdminController::class, 'manageOrders'])->name('admin.manage-orders');
+    Route::get('customers', [AdminController::class, 'customers'])->name('admin.customers');
+
+    Route::get('coupan-list', [DiscountController::class, 'index'])->name('admin.coupan-list');
+    Route::get('add-coupan', [DiscountController::class, 'create'])->name('admin.add-coupan');
+    Route::post('storecoupan', [DiscountController::class, 'store'])->name('admin.storecoupan');
+    Route::get('edit-coupan/{id}', [DiscountController::class, 'edit'])->name('admin.edit-coupan');
+    Route::post('update-coupan/{id}', [DiscountController::class, 'update'])->name('admin.update-coupan');
+
+
+});
+
+// USER routes
+Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
+
+    Route::get('dashboard', [UserController::class, 'home'])->name('user.dashboard');
+    Route::get('about-us', [UserController::class, 'about_page'])->name('user.About');
+    Route::get('contact', [UserController::class, 'contact_page'])->name('user.Contact');
+    Route::get('product', [UserController::class, 'products'])->name('user.product');
+    Route::get('search', [UserController::class, 'search'])->name('user.search');
+
+    Route::get('product-details/{id}', [ProductController::class, 'show'])->name('user.');
+
+    Route::get('product-cart', [UserController::class, 'cart'])->name('user.');
+    Route::get('product-checkout', [UserController::class, 'product_checkouts'])->name('user.product-checkout');
+
+    Route::get('whishlist', [UserController::class, 'whishlist_page'])->name('user.');
+    Route::get('login_register', [UserController::class, 'login_page'])->name('user.');
+    Route::get('faqs', [UserController::class, 'faqs_page'])->name('user.');
+    Route::get('profile', [UserController::class, 'user_page'])->name('user.profile');
+    Route::get('profile-form', [UserProfileController::class, 'index'])->name('user.profile-form');
+    Route::post('store-profile', [UserProfileController::class, 'store'])->name('user.store-profile');
+    Route::get('logout', [UserProfileController::class, 'logout'])->name('user.logout');
+    Route::get('category/{id}', [UserController::class, 'category'])->name('user.category');
+    Route::post('add-to-cart/{id}', [CartController::class, 'add'])->name('user.cart');
+    Route::get('cartview', [CartController::class, 'cartview'])->name('user.cartview');
+    Route::get('item-delete/{id}', [CartController::class, 'destroy'])->name('user.item-delete');
+    Route::post('create-order', [OrderController::class, 'store'])->name('user.create-order');
+
+
+});
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+require __DIR__ . '/auth.php';
