@@ -19,6 +19,7 @@ public function logout(Request $request) {
         
             }
             
+            
                     public function categoryList(){
                         return view('admin-pages.category-list');                         
                         

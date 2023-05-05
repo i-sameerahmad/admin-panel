@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\UserController;
@@ -37,6 +38,20 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('category-list', [CategoryController::class, 'index'])->name('admin.view-category');
     Route::get('edit-category/{id}', [CategoryController::class, 'edit'])->name('admin.edit-category');
     Route::post('update-category/{id}', [CategoryController::class, 'update'])->name('admin.update-category');
+
+
+
+
+
+    Route::get('add-doctor', [DoctorController::class, 'index'])->name('admin.addDoctor');
+    Route::get('doctor-list', [DoctorController::class, 'list'])->name('admin.doctor-list');
+
+
+
+
+
+
+
 
     Route::get('manage-orders', [AdminController::class, 'manageOrders']);
     Route::get('customers', [AdminController::class, 'customers']);
