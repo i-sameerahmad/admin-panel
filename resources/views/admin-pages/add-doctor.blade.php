@@ -13,7 +13,7 @@
                 <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
-                    Products </a>
+                    Doctor </a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
                     Add Doctor </a>
@@ -35,41 +35,41 @@
             <div class="alert alert-secondary" role="alert">
                 <div style="display: flex ;">
 <h3 style="color: black; font-size: 30px;">Add Doctor</h3>  
-<a href="category-list"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Doctor</button></a>
-
+<a href="{{ route('admin.doctor-list') }}"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Doctor</button></a>
+    
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label>Doctor Name</label>
-            <input type="name" name="product_name" class="form-control" aria-describedby="emailHelp" placeholder="name">
+            <label>Name</label>
+            <input type="name" name="doc_name" class="form-control" aria-describedby="emailHelp" placeholder="name">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
-            <input type="text" name="product_description" class="form-control" id="exampleInputPassword1" placeholder="description">
+            <input type="text" name="doc_description" class="form-control" id="exampleInputPassword1" placeholder="description">
         </div>
 
         <div class="form-group">
             <label for="exampleInputPassword1">Phone No.</label>
-            <input type="text" name="product_description" class="form-control" id="exampleInputPassword1" placeholder="number">
+            <input type="text" name="doc_phone" class="form-control" id="exampleInputPassword1" placeholder="number">
         </div>
 
         <div class="form-group">
             <label for="exampleInputPassword1">Email</label>
-            <input type="text" name="product_description" class="form-control" id="exampleInputPassword1" placeholder="em@il">
+            <input type="text" name="doc_email" class="form-control" id="exampleInputPassword1" placeholder="em@il">
         </div>
 
         <div class="form-group">
             <label for="exampleInputPassword1">Address</label>
-            <input type="text" name="product_description" class="form-control" id="exampleInputPassword1" placeholder="address">
+            <input type="text" name="doc_address" class="form-control" id="exampleInputPassword1" placeholder="address">
         </div>
         <div class="form-group">
-            <label for="exampleSelect1">Phone</label>
-            <select class="form-control" id="exampleSelect1" name="product_status">
+            <label for="exampleSelect1">Status</label>
+            <select class="form-control" id="exampleSelect1" name="doc_status">
                 <option value="1">Active</option>
                 <option value="1">Inactive</option>
             </select>
-        </div>
+        </div>  
         <!-- <div class="form-group">
             <label for="exampleInputPassword1">Price</label>
             <input type="number" name="product_price" class="form-control" id="exampleInputPassword1" placeholder="Price">
