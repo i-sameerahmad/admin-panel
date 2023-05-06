@@ -17,12 +17,12 @@
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
                     Add Product </a>
-                
+
 
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -34,8 +34,8 @@
         <div class="form-group form-group-last">
             <div class="alert alert-secondary" role="alert">
                 <div style="display: flex ;">
-<h3 style="color: black; font-size: 30px;">Add Product</h3>  
-<a href="category-list"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Products</button></a>
+<h3 style="color: black; font-size: 30px;">Edit Product</h3>
+<a href="{{route('admin.product-list')}}"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Products</button></a>
 
                 </div>
             </div>
@@ -65,70 +65,24 @@
         </div>
         <div class="form-group">
             <label for="exampleSelect1">Category</label>
-            <select class="form-control" id="exampleSelect1" name="category_id">
-               
-                @forelse($categories as $key=>$category)
-                <option value="{{$category->id}}">{{$category->category_name}}</option>
+            <select class="form-control" id="exampleSelect1" name="category">
 
-        @empty
-            No Data Found
-        @endforelse
+                <option value="food">Food</option>
+                <option value="accessory">Accessory</option>
+                <option value="medicine">Medicine</option>
 
-               
             </select>
         </div>
 <!-- <h3>Product Attributes</h3> -->
 <!-- <button type="button" class="btn btn-dark" onclick="add_more()">+</button> -->
-<div id="attribute_form_1">
-    
-<div style="display:flex; padding-top: 15px; justify-content: space-around;">
-        <div class="form-group">
-            <label for="exampleSelect1">Size</label>
-            <select class="form-control" id="size_id" name="size_id">
-               
-                @forelse($sizes as $key=>$size)
-                <option value="{{$size->id}}">{{$size->size}}</option>
 
-        @empty
-            No Data Found
-        @endforelse             
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="exampleSelect1">Color</label>
-            <select class="form-control" id="color_id" name="color_id">
-               
-                @forelse($colors as $key=>$color)
-                <option value="{{$color->id}}">{{$color->color}}</option>
-
-        @empty
-            No Data Found
-        @endforelse
-
-               
-            </select>
-        </div>
 
         <div class="form-group">
             <label>Quantity</label>
-            <input type="number" value="{{ $quantity[0]->quantity }}" name="quantity" class="form-control" aria-describedby="emailHelp" placeholder="quantity">
+            <input type="number" value="{{ $product->quantity }}" name="quantity" class="form-control" aria-describedby="emailHelp" placeholder="quantity">
         </div>
 
-    </div>
 
-</div>
-        <div class="form-group">
-            <label for="exampleSelect1">Discount</label>
-            <select class="form-control" id="exampleSelect1" name="discount_id"> 
-                @forelse($coupans as $key=>$coupan)
-                <option value="{{$coupan->id}}">{{$coupan->discount_name}}</option>
-
-        @empty
-            No Data Found
-        @endforelse
-
-            </select>
-        </div>
         <!-- <div class="form-group">
             <label>File Browser</label>
             <div class="custom-file">
@@ -144,12 +98,12 @@
         </div>
     </div>
 </form>
-<!-- 
+<!--
 <script>
 
     var count = 1;
 function add_more(){
-    count++; 
+    count++;
     var html = '<div id="attribute_form_'+count+'"><div style="display:flex; padding-top: 15px; justify-content: space-around;">';
 
 var size_id_html= jQuery('#size_id').html();
@@ -159,7 +113,7 @@ var color_id_html= jQuery('#color_id').html();
 html+= '<div class="form-group"> <label for="exampleSelect1">Color</label><select class="form-control" id="color_id" name="color_id[]"> '+color_id_html+' </select></div>';
 html+= ' <div class="form-group"><label>Quantity</label><input type="number" name="quantity[]" class="form-control" aria-describedby="emailHelp" placeholder="quantity"></div>';
 html+= ' <div class="form-group"><button type="button" class="btn btn-danger" onclick=remove_more("'+count+'")>-</button></div>';
-  
+
 
 
 html += '</div></div>';

@@ -11,12 +11,12 @@ class Product extends Model
     protected $guarded=[];
     public $timestamps = false;
 
-    public function inventory(){
-      
-            return $this->hasOne(Inventory::class);
-    }
-    public function category(){
-      
-        return $this->belongsTo(Category::class);
-}
+//     public function inventory(){
+
+//             return $this->hasOne(Inventory::class);
+//     }
+//     public function category(){
+
+//         return $this->belongsTo(Category::class);
+// }
 }
