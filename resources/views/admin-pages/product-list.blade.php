@@ -75,7 +75,7 @@
                         </td>
                         <td nowrap>
                             <a href="edit-product/{{ $product->id }}"><button type="button" class="btn btn-accent btn-icon"><i class="fa fa-pen"></i></button></a>&nbsp;
-                            {{-- <button type="button" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button>&nbsp;</td> --}}
+                            <a href="delete-product/{{ $product->id }}"><button type="button" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button></a>&nbsp;</td>
 
                         </td>
                     </tr>

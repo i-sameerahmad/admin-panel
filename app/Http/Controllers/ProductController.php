@@ -177,8 +177,8 @@ class ProductController extends Controller
 
             // put new file in dir
             $file = $request->file('product_image');
-            $data['product_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $data['product_image']);
+            $product['product_image'] = $file->getClientOriginalName();
+            $file->move('uploads/', $product['product_image']);
         }
 
 
@@ -206,8 +206,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product=Product::find($id);
+        $product->delete();
+        return redirect(route('admin.product-list'));
+
     }
 }

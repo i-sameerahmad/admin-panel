@@ -39,19 +39,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('edit-category/{id}', [CategoryController::class, 'edit'])->name('admin.edit-category');
     Route::post('update-category/{id}', [CategoryController::class, 'update'])->name('admin.update-category');
 
-
-
-
-
     Route::get('add-doctor', [DoctorController::class, 'index'])->name('admin.addDoctor');
     Route::get('doctor-list', [DoctorController::class, 'list'])->name('admin.doctor-list');
-
-
-
-
-
-
-
+    Route::post('create-doctor', [DoctorController::class, 'store'])->name('admin.create-doctor');
+    Route::get('edit-doctor/{id}', [DoctorController::class, 'edit'])->name('admin.edit-doctor');
+    Route::post('update-doctor/{id}', [DoctorController::class, 'update'])->name('admin.update-doctor');
+    Route::get('delete-doctor/{id}', [DoctorController::class, 'destroy'])->name('admin.delete-doctor');
 
     Route::get('manage-orders', [AdminController::class, 'manageOrders']);
     Route::get('customers', [AdminController::class, 'customers']);
@@ -63,6 +56,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('create-product', [ProductController::class, 'store'])->name('admin.create-product');
     Route::get('edit-product/{id}', [ProductController::class, 'edit'])->name('admin.edit-product');
     Route::post('update-product/{id}', [ProductController::class, 'update'])->name('admin.update-product');
+    Route::get('delete-product/{id}', [ProductController::class, 'destroy'])->name('admin.delete-product');
+
 
     Route::get('manage-orders', [AdminController::class, 'manageOrders'])->name('admin.manage-orders');
     Route::get('customers', [AdminController::class, 'customers'])->name('admin.customers');
