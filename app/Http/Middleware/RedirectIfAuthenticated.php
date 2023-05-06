@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
 
         if(Auth::check() && Auth::user()->user_type === 0){
             return redirect(route('user.dashboard'));
-        } else if  (Auth::check() && Auth::user()->user_type){
+        } else if  (Auth::check() && Auth::user()->user_type === 1){
             return redirect(route('admin.dashboard'));
         }
 

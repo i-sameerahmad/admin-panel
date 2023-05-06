@@ -66,10 +66,10 @@
                     <tr>
                         <td>{{ $key+1 }}</td>
                         <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->Category->category_name }}</td>
+                        <td>{{ $product->category }}</td>
                         <td>{{ $product->product_price }}</td>
                         <td>{{ $product->product_description }}</td>
-                        {{-- <td>{{ $product->Inventory->quantity }}</td> --}}
+                        <td>{{ $product->quantity }}</td>
                         <td>
                         <span class="badge badge-pill badge-primary">{{ $product->product_status }}</span>
                         </td>

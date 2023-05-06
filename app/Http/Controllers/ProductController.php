@@ -24,13 +24,13 @@ class ProductController extends Controller
     public function index()
     {
 
-        $products = Product::with('Inventory')->get();
+        $products = Product::all();
      //   dd($products);
        // echo $products[2]->inventory->quantity;
        return view('admin-pages.product-list', compact('products'));
         //   dd($products);
 
-        
+
     }
 
     /**
@@ -40,12 +40,13 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        $colors = Color::all();
-        $sizes = Size::all();
+        // $categories = Category::all();
+        // $colors = Color::all();
+        // $sizes = Size::all();
         $coupans = Discount::all();
 
-        return view('admin-pages.add-product', compact('categories', 'colors', 'sizes', 'coupans'));
+        return view('admin-pages.add-product');
+        // , compact('categories', 'colors', 'sizes', 'coupans')
     }
 
     /**
@@ -56,38 +57,38 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //    dd($request->all());
+            //  dd($request->all());
         //
         $product = $request->validate([
             'product_name' => 'required',
             'product_description' => 'required',
             'product_status' => 'required',
             'product_price' => 'required',
-            'category_id' => 'required',
-            'discount_id' => 'required',
+            'category' => 'required',
+            'quantity' => 'required',
             // 'product_image' => 'required',
         ]);
-        echo $request->file('product_image');
+        // echo $request->file('product_image');
         if ($request->hasFile('product_image')) {
             $file = $request->file('product_image');
             $product['product_image'] = $file->getClientOriginalName();
             $file->move('uploads/', $file->getClientOriginalName());
         }
-        // dd($product);
-        $dir = Product::create($product);
+        //  dd($product);
+        // $dir = Product::create($product);
 
+        Product::create($product);
+        // $size_id = 1;
+        // $color_id = 1;
+        // $quantity = $request->quantity;
+        // $id = $dir->id;
 
-        $size_id = 1;
-        $color_id = 1;
-        $quantity = $request->quantity;
-        $id = $dir->id;
-
-        $data = [
-            'size_id' => $size_id,
-            'color_id' => $color_id,
-            'quantity' => $quantity,
-            'product_id' => $id,
-        ];
+        // $data = [
+        //     'size_id' => $size_id,
+        //     'color_id' => $color_id,
+        //     'quantity' => $quantity,
+        //     'product_id' => $id,
+        // ];
 
         // $size_id = $request->size_id;
         // $color_id = $request->color_id;
@@ -102,7 +103,7 @@ class ProductController extends Controller
         //         'quantity'=> $quantity[$i],
         //         'product_id'=> $id,
         //     ];
-        Inventory::create($data);
+        // Inventory::create($data);
         return redirect(route('admin.product-list'));
     }
 
@@ -131,15 +132,16 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::all();
-        $colors = Color::all();
-        $sizes = Size::all();
-        $coupans = Discount::all();
+        // $categories = Category::all();
+        // $colors = Color::all();
+        // $sizes = Size::all();
+        // $coupans = Discount::all();
 
         $product = Product::find($id);
-        $quantity = Inventory::where('product_id',$id)->get();
+        // $quantity = Inventory::where('product_id',$id)->get();
        // dd($quantity);
-        return view('admin-pages.edit-product', compact('product','quantity' ,'categories', 'colors', 'sizes', 'coupans'));
+        return view('admin-pages.edit-product', compact('product'));
+        // ,'quantity' ,'categories', 'colors', 'sizes', 'coupans'
     }
 
     /**
@@ -157,8 +159,8 @@ class ProductController extends Controller
             'product_description' => 'required',
             'product_status' => 'required',
             'product_price' => 'required',
-            'category_id' => 'required',
-            'discount_id' => 'required',
+            'category' => 'required',
+            'quantity' => 'required',
             // 'product_image' => 'required',
         ]);
         // if( $request->hasFile('product_image')){
@@ -180,21 +182,21 @@ class ProductController extends Controller
         }
 
 
-        $dir = $found_product->update($product);
+         $found_product->update($product);
 
 
-        $size_id = 1;
-        $color_id = 1;
-        $quantity = $request->quantity;
-        //   $id = $dir->id;
+        // $size_id = 1;
+        // $color_id = 1;
+        // $quantity = $request->quantity;
+        // //   $id = $dir->id;
 
-        $data = [
-            'size_id' => $size_id,
-            'color_id' => $color_id,
-            'quantity' => $quantity,
-            'product_id' => $id,
-        ];
-        Inventory::where('product_id', $id)->update($data);
+        // $data = [
+        //     'size_id' => $size_id,
+        //     'color_id' => $color_id,
+        //     'quantity' => $quantity,
+        //     'product_id' => $id,
+        // ];
+        // Inventory::where('product_id', $id)->update($data);
         return redirect(route('admin.product-list'));
     }
 
