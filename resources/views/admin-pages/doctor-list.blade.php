@@ -7,16 +7,16 @@
 <div style="margin-left: 40px ; height: 80px;" class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
         <div class="kt-subheader__main">
-            <h1 class="kt-subheader__title">Product</h1>
+            <h1 class="kt-subheader__title">Doctor</h1>
             <span class="kt-subheader__separator kt-hidden"></span>
             <div class="kt-subheader__breadcrumbs">
                 <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
-                    Products </a>
+                    Doctor </a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
-                    Product List</a>
+                    Doctor List</a>
                 
 
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
@@ -28,8 +28,8 @@
 
 <div class="alert alert-secondary" role="alert">
     <div style="display: flex ;">
-<h3 style="color: black; margin-left: 30px ;  font-size: 30px;">Products</h3>  
-<a href="category-list"><button style="margin-left: 400px ;" type="button" class="btn btn-primary btn-wide"><i class="fa fa-plus"></i>  Add Product</button></a>
+<h3 style="color: black; margin-left: 30px ;  font-size: 30px;">Doctor</h3>  
+<a href="category-list"><button style="margin-left: 400px ;" type="button" class="btn btn-primary btn-wide"><i class="fa fa-plus"></i>  Add Doctor</button></a>
 
     </div>
 </div>
@@ -40,7 +40,7 @@
         <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
                 <h3 class="kt-portlet__head-title">
-                    Product Record
+                    Doctor Record
                 </h3>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_1">
                 <thead>
                     <tr>
-                        <th>Product ID</th>
+                        <th>Doctor ID</th>
                         <th>Name</th>
                         <th>Category</th>
                         <th>Price</th>
