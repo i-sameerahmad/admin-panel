@@ -52,7 +52,7 @@
             <label for="exampleSelect1">Status</label>
             <select class="form-control" id="exampleSelect1" name="product_status">
                 <option value="Active">Active</option>
-                <option value="Active">Inactive</option>
+                <option value="Inactive">Inactive</option>
             </select>
         </div>
         <div class="form-group">
