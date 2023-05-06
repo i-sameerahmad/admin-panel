@@ -20,10 +20,8 @@ return new class extends Migration
             $table->string('product_status');
             $table->integer('product_price');
             $table->string('product_image');
-            $table->UnsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->UnsignedBigInteger('discount_id');
-            $table->foreign('discount_id')->references('id')->on('discounts');
+            $table->string('category');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
