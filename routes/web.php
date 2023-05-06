@@ -12,9 +12,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\CartController;
-
-
-
+use App\Http\Controllers\VarifiedPetsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +39,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     Route::get('add-doctor', [DoctorController::class, 'index'])->name('admin.addDoctor');
     Route::get('doctor-list', [DoctorController::class, 'list'])->name('admin.doctor-list');
+    Route::get('add-pets', [VarifiedPetsController::class, 'index'])->name('admin.add-verified-pets');
+    Route::get('pets-list', [VarifiedPetsController::class, 'list'])->name('admin.pets-list');
+    Route::get('edit-pets', [VarifiedPetsController::class, 'list'])->name('admin.edit-pets');
+
     Route::post('create-doctor', [DoctorController::class, 'store'])->name('admin.create-doctor');
     Route::get('edit-doctor/{id}', [DoctorController::class, 'edit'])->name('admin.edit-doctor');
     Route::post('update-doctor/{id}', [DoctorController::class, 'update'])->name('admin.update-doctor');

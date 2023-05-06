@@ -7,16 +7,16 @@
 <div style="margin-left: 40px ; height: 80px;" class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
         <div class="kt-subheader__main">
-            <h1 class="kt-subheader__title">Product</h1>
+            <h1 class="kt-subheader__title">Pets</h1>
             <span class="kt-subheader__separator kt-hidden"></span>
             <div class="kt-subheader__breadcrumbs">
                 <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
-                    Products </a>
+                    Pets </a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
-                    Add Product </a>
+                    Add Pets </a>
 
 
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
@@ -27,37 +27,36 @@
 </div>
 
 
-
-<form style="margin-left: 80px;" class="kt-form" Method="POST" action="../update-product/{{ $product->id }}" enctype="multipart/form-data">
+<form style="margin-left: 80px;" class="kt-form" Method="POST" action="create-product" enctype="multipart/form-data">
     @csrf
     <div class="kt-portlet__body">
         <div class="form-group form-group-last">
             <div class="alert alert-secondary" role="alert">
                 <div style="display: flex ;">
-<h3 style="color: black; font-size: 30px;">Edit Product</h3>
-<a href="{{route('admin.product-list')}}"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Products</button></a>
+<h3 style="color: black; font-size: 30px;">Add Pets</h3>
+<a href="{{ route('admin.pets-list') }}"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Pets</button></a>
 
                 </div>
             </div>
         </div>
         <div class="form-group">
             <label>Name</label>
-            <input type="name" value="{{ $product->product_name }}" name="product_name" class="form-control" aria-describedby="emailHelp" placeholder="name">
+            <input type="name" name="product_name" class="form-control" aria-describedby="emailHelp" placeholder="name">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
-            <input type="text" name="product_description" value="{{ $product->product_description }}" class="form-control" id="exampleInputPassword1" placeholder="Description">
+            <input type="text" name="product_description" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="exampleSelect1">Status</label>
             <select class="form-control" id="exampleSelect1" name="product_status">
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
             </select>
-        </div>
+        </div> --}}
         <div class="form-group">
             <label for="exampleInputPassword1">Price</label>
-            <input type="number" name="product_price" value="{{ $product->product_price }}" class="form-control" id="exampleInputPassword1" placeholder="Price">
+            <input type="number" name="product_price" class="form-control" id="exampleInputPassword1" placeholder="Price">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Image</label>
@@ -66,23 +65,45 @@
         <div class="form-group">
             <label for="exampleSelect1">Category</label>
             <select class="form-control" id="exampleSelect1" name="category">
-
-                <option value="food">Food</option>
-                <option value="accessory">Accessory</option>
-                <option value="medicine">Medicine</option>
+                <option value="food">Goat</option>
+                <option value="accessory">Cat</option>
+                <option value="medicine">Dog</option>
+                <option value="food">Cow</option>
+                <option value="accessory">Bufflo</option>
+                <option value="medicine">camel</option>
+                <option value="medicine">Parrot</option>
 
             </select>
         </div>
+
+        {{-- <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" name="quantity" class="form-control" aria-describedby="emailHelp" placeholder="quantity">
+        </div> --}}
 <!-- <h3>Product Attributes</h3> -->
 <!-- <button type="button" class="btn btn-dark" onclick="add_more()">+</button> -->
+{{-- <div id="attribute_form_1">
+
+<div style="display:flex; padding-top: 15px; justify-content: space-around;">
 
 
-        <div class="form-group">
-            <label>Quantity</label>
-            <input type="number" value="{{ $product->quantity }}" name="quantity" class="form-control" aria-describedby="emailHelp" placeholder="quantity">
-        </div>
 
 
+    </div>
+
+</div> --}}
+        {{-- <div class="form-group">
+            <label for="exampleSelect1">Discount</label>
+            <select class="form-control" id="exampleSelect1" name="discount_id">
+                @forelse($coupans as $key=>$coupan)
+                <option value="{{$coupan->id}}">{{$coupan->discount_name}}</option>
+
+        @empty
+            No Data Found
+        @endforelse
+
+            </select>
+        </div> --}}
         <!-- <div class="form-group">
             <label>File Browser</label>
             <div class="custom-file">
@@ -127,3 +148,4 @@ function remove_more(count){
 </script> -->
 
 @endsection
+
