@@ -16,7 +16,7 @@
                     Pets </a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
-                    Add Pets </a>
+                    Edit Pets </a>
 
 
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
@@ -27,13 +27,13 @@
 </div>
 
 
-<form style="margin-left: 80px;" class="kt-form" Method="POST" action="create-product" enctype="multipart/form-data">
+<form style="margin-left: 80px;" class="kt-form" Method="POST" action="../update-pets/{{ $pet->id }}" enctype="multipart/form-data">
     @csrf
     <div class="kt-portlet__body">
         <div class="form-group form-group-last">
             <div class="alert alert-secondary" role="alert">
                 <div style="display: flex ;">
-<h3 style="color: black; font-size: 30px;">Add Pets</h3>
+<h3 style="color: black; font-size: 30px;">Edit Pets</h3>
 <a href="{{ route('admin.pets-list') }}"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Pets</button></a>
 
                 </div>
@@ -41,11 +41,11 @@
         </div>
         <div class="form-group">
             <label>Name</label>
-            <input type="name" name="product_name" class="form-control" aria-describedby="emailHelp" placeholder="name">
+            <input type="name" name="vpet_name" value="{{$pet->vpet_name}}" class="form-control" aria-describedby="emailHelp" placeholder="name">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
-            <input type="text" name="product_description" class="form-control" id="exampleInputPassword1" placeholder="Description">
+            <input type="text" name="vpet_description" value="{{$pet->vpet_description}}" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
         {{-- <div class="form-group">
             <label for="exampleSelect1">Status</label>
@@ -56,22 +56,22 @@
         </div> --}}
         <div class="form-group">
             <label for="exampleInputPassword1">Price</label>
-            <input type="number" name="product_price" class="form-control" id="exampleInputPassword1" placeholder="Price">
+            <input type="number" name="vpet_price" value="{{$pet->vpet_price}}" class="form-control" id="exampleInputPassword1" placeholder="Price">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Image</label>
-            <input type="file" name="product_image" class="form-control" id="exampleInputPassword1">
+            <input type="file" name="vpet_image" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="form-group">
             <label for="exampleSelect1">Category</label>
-            <select class="form-control" id="exampleSelect1" name="category">
-                <option value="food">Goat</option>
-                <option value="accessory">Cat</option>
-                <option value="medicine">Dog</option>
-                <option value="food">Cow</option>
-                <option value="accessory">Bufflo</option>
-                <option value="medicine">camel</option>
-                <option value="medicine">Parrot</option>
+            <select class="form-control" id="exampleSelect1" name="vpet_category">
+                <option value="Goat">Goat</option>
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Cow">Cow</option>
+                <option value="Buffalo">Buffalo</option>
+                <option value="Camel">Camel</option>
+                <option value="Parrot">Parrot</option>
 
             </select>
         </div>

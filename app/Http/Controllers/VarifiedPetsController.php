@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\varifiedPets;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 class VarifiedPetsController extends Controller
 {
     /**
@@ -87,9 +89,10 @@ class VarifiedPetsController extends Controller
      * @param  \App\Models\varifiedPets  $varifiedPets
      * @return \Illuminate\Http\Response
      */
-    public function edit(varifiedPets $varifiedPets)
+    public function edit($id)
     {
-        //
+        $pet = varifiedPets::find($id);
+        return view('admin-pages.edit-pet',compact('pet'));
     }
 
     /**
@@ -99,9 +102,29 @@ class VarifiedPetsController extends Controller
      * @param  \App\Models\varifiedPets  $varifiedPets
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, varifiedPets $varifiedPets)
+    public function update(Request $request, $id)
     {
-        //
+        $found_pet = varifiedPets::find($id);
+        $pet = $request->validate([
+            'vpet_name' => 'required',
+            'vpet_description' => 'required',
+            'vpet_price' => 'required',
+            'vpet_category' => 'required',
+        ]);
+
+        if ($request->hasfile('vpet_image')) {
+            // delete old file from dir
+            File::delete('uploads/' . $found_pet->vpet_image);
+
+            // put new file in dir
+            $file = $request->file('vpet_image');
+            $pet['vpet_image'] = $file->getClientOriginalName();
+            $file->move('uploads/', $pet['vpet_image']);
+        }
+
+
+         $found_pet->update($pet);
+        return redirect(route('admin.pets-list'));
     }
 
     /**
@@ -110,8 +133,11 @@ class VarifiedPetsController extends Controller
      * @param  \App\Models\varifiedPets  $varifiedPets
      * @return \Illuminate\Http\Response
      */
-    public function destroy(varifiedPets $varifiedPets)
+    public function destroy($id)
     {
-        //
+        $pet = varifiedPets::find($id);
+        $pet->delete();
+        return redirect(route('admin.pets-list'));
+
     }
 }

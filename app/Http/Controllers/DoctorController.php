@@ -60,7 +60,6 @@ $doctors=Doctor::all();
      */
     public function store(Request $request)
     {
-// dd($request->all());
         $doctor = $request->validate([
             'doc_name' => 'required',
             'doc_description' => 'required',
@@ -127,13 +126,6 @@ $doctors=Doctor::all();
             'doc_status' => 'required',
             // 'product_image' => 'required',
         ]);
-        // if( $request->hasFile('product_image')){
-
-        //     $file=$request->file('product_image');
-        //     $product['product_image'] = $file->getClientOriginalName();
-        //     $file->move('uploads',$file->getClientOriginalName());
-        // }
-
 
         if ($request->hasfile('doc_image')) {
             // delete old file from dir
@@ -147,20 +139,6 @@ $doctors=Doctor::all();
 
 
          $found_doctor->update($doctor);
-
-
-        // $size_id = 1;
-        // $color_id = 1;
-        // $quantity = $request->quantity;
-        // //   $id = $dir->id;
-
-        // $data = [
-        //     'size_id' => $size_id,
-        //     'color_id' => $color_id,
-        //     'quantity' => $quantity,
-        //     'product_id' => $id,
-        // ];
-        // Inventory::where('product_id', $id)->update($data);
         return redirect(route('admin.doctor-list'));
     }
 

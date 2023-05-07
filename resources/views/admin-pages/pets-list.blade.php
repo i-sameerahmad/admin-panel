@@ -29,7 +29,7 @@
 <div class="alert alert-secondary" role="alert">
     <div style="display: flex ;">
 <h3 style="color: black; margin-left: 30px ;  font-size: 30px;">pet</h3>
-<a href="{{ route('admin.addpet') }}"><button style="margin-left: 400px ;" type="button" class="btn btn-primary btn-wide"><i class="fa fa-plus"></i>  Add pet</button></a>
+<a href="{{ route('admin.add-verified-pets') }}"><button style="margin-left: 400px ;" type="button" class="btn btn-primary btn-wide"><i class="fa fa-plus"></i>  Add pet</button></a>
 
     </div>
 </div>
@@ -66,15 +66,14 @@
                         <td>{{ $pet->vpet_name }}</td>
                         <td>{{ $pet->vpet_description }}</td>
                         <td>{{ $pet->vpet_price }}</td>
-                        <td>{{ $pet->vpet_email }}</td>
-                        <td>{{ $pet->vpet_address }}</td>
+                        <td>{{ $pet->vpet_category }}</td>
 
                         {{-- <td>
                         <span class="badge badge-pill badge-primary">Primary</span>
 
                     </td> --}}
                         <td nowrap>
-                            <a href="edit-pet/{{ $pet->id }}"><button type="button" class="btn btn-accent btn-icon"><i class="fa fa-pen"></i></button></a>&nbsp;
+                            <a href="edit-pets/{{ $pet->id }}"><button type="button" class="btn btn-accent btn-icon"><i class="fa fa-pen"></i></button></a>&nbsp;
                             <a href="delete-pet/{{ $pet->id }}"><button type="button" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button></a>&nbsp;</td>
 
                         </td>
