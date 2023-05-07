@@ -74,36 +74,7 @@ class ProductController extends Controller
             $product['product_image'] = $file->getClientOriginalName();
             $file->move('uploads/', $file->getClientOriginalName());
         }
-        //  dd($product);
-        // $dir = Product::create($product);
-
         Product::create($product);
-        // $size_id = 1;
-        // $color_id = 1;
-        // $quantity = $request->quantity;
-        // $id = $dir->id;
-
-        // $data = [
-        //     'size_id' => $size_id,
-        //     'color_id' => $color_id,
-        //     'quantity' => $quantity,
-        //     'product_id' => $id,
-        // ];
-
-        // $size_id = $request->size_id;
-        // $color_id = $request->color_id;
-        // $quantity = $request->quantity;
-        // $id = $dir->id;
-
-        // echo count($size_id);
-        // for ($i=0; $i <count($quantity) ; $i++) {
-        //     $data = [
-        //         'size_id' => $size_id[$i],
-        //         'color_id'=> $color_id[$i],
-        //         'quantity'=> $quantity[$i],
-        //         'product_id'=> $id,
-        //     ];
-        // Inventory::create($data);
         return redirect(route('admin.product-list'));
     }
 
