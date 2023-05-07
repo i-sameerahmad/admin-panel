@@ -60,7 +60,7 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                {{-- <tbody>
                     @forelse($pets as $key=>$pet)
 
                     <tr>
@@ -72,10 +72,7 @@
                         <td>{{ $pet->vpet_price }}</td>
                         <td>{{ $pet->vpet_category }}</td>
 
-                        {{-- <td>
-                        <span class="badge badge-pill badge-primary">Primary</span>
 
-                    </td> --}}
                         <td nowrap>
                             <a href="edit-pets/{{ $pet->id }}"><button type="button" class="btn btn-accent btn-icon"><i class="fa fa-pen"></i></button></a>&nbsp;
                             <a href="delete-pet/{{ $pet->id }}"><button type="button" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button></a>&nbsp;</td>
@@ -85,7 +82,7 @@
                     @empty
                     No Data Found
                 @endforelse
-                    </tbody>
+                    </tbody> --}}
 
             </table>
 

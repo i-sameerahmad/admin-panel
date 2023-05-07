@@ -58,6 +58,8 @@ class VarifiedPetsController extends Controller
         $pet = $request->validate([
             'vpet_name' => 'required',
             'vpet_description' => 'required',
+            'vpet_gender' => 'required',
+            'vpet_age' => 'required',
             'vpet_price' => 'required',
             'vpet_category' => 'required',
             // 'product_image' => 'required',
@@ -108,6 +110,8 @@ class VarifiedPetsController extends Controller
         $pet = $request->validate([
             'vpet_name' => 'required',
             'vpet_description' => 'required',
+            'vpet_gender' => 'required',
+            'vpet_age' => 'required',
             'vpet_price' => 'required',
             'vpet_category' => 'required',
         ]);
