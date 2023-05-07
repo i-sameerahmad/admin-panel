@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\ManageAdController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\OrderController;
@@ -46,6 +47,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('create-pet', [VarifiedPetsController::class, 'store'])->name('admin.create-pet');
     Route::get('delete-pet/{id}', [VarifiedPetsController::class, 'destroy'])->name('admin.delete-pet');
 
+    Route::get('manage-ad', [ManageAdController::class, 'index'])->name('admin.manage-ad');
 
     Route::post('create-doctor', [DoctorController::class, 'store'])->name('admin.create-doctor');
     Route::get('edit-doctor/{id}', [DoctorController::class, 'edit'])->name('admin.edit-doctor');

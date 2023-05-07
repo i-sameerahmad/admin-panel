@@ -13,15 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('varified_pets', function (Blueprint $table) {
+        Schema::create('manage_ads', function (Blueprint $table) {
             $table->id();
-            $table->string('vpet_name');
-            $table->string('vpet_description');
-            $table->string('vpet_gender');
-            $table->Integer('vpet_age');
-            $table->Integer('vpet_price');
-            $table->string('vpet_image');
-            $table->string('vpet_category');
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('varified_pets');
+        Schema::dropIfExists('manage_ads');
     }
 };

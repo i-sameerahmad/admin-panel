@@ -47,13 +47,24 @@
             <label for="exampleInputPassword1">Description</label>
             <input type="text" name="vpet_description" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
+
         {{-- <div class="form-group">
-            <label for="exampleSelect1">Status</label>
-            <select class="form-control" id="exampleSelect1" name="product_status">
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-            </select>
+            <label for="exampleInputPassword1">Gender</label>
+            <input type="text" name="vpet_gender" class="form-control" id="exampleInputPassword1" placeholder="gender">
         </div> --}}
+         <div class="form-group">
+            <label for="exampleSelect1">Gender</label>
+            <select class="form-control" id="exampleSelect1" name="vpet_gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Age</label>
+            <input type="number" name="vpet_age" class="form-control" id="exampleInputPassword1" placeholder="age">
+        </div>
+
+
         <div class="form-group">
             <label for="exampleInputPassword1">Price</label>
             <input type="number" name="vpet_price" class="form-control" id="exampleInputPassword1" placeholder="Price">
