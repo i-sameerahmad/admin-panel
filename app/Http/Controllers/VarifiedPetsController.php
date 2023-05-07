@@ -24,10 +24,10 @@ class VarifiedPetsController extends Controller
 
     public function list()
     {
-        // $products = varifiedPets::all();
+         $pets = varifiedPets::all();
      //   dd($products);
        // echo $products[2]->inventory->quantity;
-       return view('admin-pages.pets-list');
+       return view('admin-pages.pets-list',compact('pets'));
         //   dd($products);
 
     }
@@ -50,7 +50,24 @@ class VarifiedPetsController extends Controller
      */
     public function store(Request $request)
     {
+
+            //  dd($request->all());
         //
+        $pet = $request->validate([
+            'vpet_name' => 'required',
+            'vpet_description' => 'required',
+            'vpet_price' => 'required',
+            'vpet_category' => 'required',
+            // 'product_image' => 'required',
+        ]);
+        // echo $request->file('product_image');
+        if ($request->hasFile('vpet_image')) {
+            $file = $request->file('vpet_image');
+            $pet['vpet_image'] = $file->getClientOriginalName();
+            $file->move('uploads/', $file->getClientOriginalName());
+        }
+        varifiedPets::create($pet);
+        return redirect(route('admin.pets-list'));
     }
 
     /**

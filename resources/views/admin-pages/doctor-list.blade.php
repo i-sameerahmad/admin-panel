@@ -29,7 +29,7 @@
 <div class="alert alert-secondary" role="alert">
     <div style="display: flex ;">
 <h3 style="color: black; margin-left: 30px ;  font-size: 30px;">Doctor</h3>
-<a href="category-list"><button style="margin-left: 400px ;" type="button" class="btn btn-primary btn-wide"><i class="fa fa-plus"></i>  Add Doctor</button></a>
+<a href="{{ route('admin.addDoctor') }}"><button style="margin-left: 400px ;" type="button" class="btn btn-primary btn-wide"><i class="fa fa-plus"></i>  Add Doctor</button></a>
 
     </div>
 </div>

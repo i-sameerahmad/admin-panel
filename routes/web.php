@@ -42,6 +42,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('add-pets', [VarifiedPetsController::class, 'index'])->name('admin.add-verified-pets');
     Route::get('pets-list', [VarifiedPetsController::class, 'list'])->name('admin.pets-list');
     Route::get('edit-pets', [VarifiedPetsController::class, 'list'])->name('admin.edit-pets');
+    Route::post('create-pet', [VarifiedPetsController::class, 'store'])->name('admin.create-pet');
 
     Route::post('create-doctor', [DoctorController::class, 'store'])->name('admin.create-doctor');
     Route::get('edit-doctor/{id}', [DoctorController::class, 'edit'])->name('admin.edit-doctor');

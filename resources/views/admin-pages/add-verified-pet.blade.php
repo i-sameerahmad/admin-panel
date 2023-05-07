@@ -27,7 +27,7 @@
 </div>
 
 
-<form style="margin-left: 80px;" class="kt-form" Method="POST" action="create-product" enctype="multipart/form-data">
+<form style="margin-left: 80px;" class="kt-form" Method="POST" action="create-pet" enctype="multipart/form-data">
     @csrf
     <div class="kt-portlet__body">
         <div class="form-group form-group-last">
@@ -41,11 +41,11 @@
         </div>
         <div class="form-group">
             <label>Name</label>
-            <input type="name" name="product_name" class="form-control" aria-describedby="emailHelp" placeholder="name">
+            <input type="name" name="vpet_name" class="form-control" aria-describedby="emailHelp" placeholder="name">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
-            <input type="text" name="product_description" class="form-control" id="exampleInputPassword1" placeholder="Description">
+            <input type="text" name="vpet_description" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
         {{-- <div class="form-group">
             <label for="exampleSelect1">Status</label>
@@ -56,22 +56,22 @@
         </div> --}}
         <div class="form-group">
             <label for="exampleInputPassword1">Price</label>
-            <input type="number" name="product_price" class="form-control" id="exampleInputPassword1" placeholder="Price">
+            <input type="number" name="vpet_price" class="form-control" id="exampleInputPassword1" placeholder="Price">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Image</label>
-            <input type="file" name="product_image" class="form-control" id="exampleInputPassword1">
+            <input type="file" name="vpet_image" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="form-group">
             <label for="exampleSelect1">Category</label>
-            <select class="form-control" id="exampleSelect1" name="category">
-                <option value="food">Goat</option>
-                <option value="accessory">Cat</option>
-                <option value="medicine">Dog</option>
-                <option value="food">Cow</option>
-                <option value="accessory">Bufflo</option>
-                <option value="medicine">camel</option>
-                <option value="medicine">Parrot</option>
+            <select class="form-control" id="exampleSelect1" name="vpet_category">
+                <option value="Goat">Goat</option>
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Cow">Cow</option>
+                <option value="Buffalo">Buffalo</option>
+                <option value="Camel">Camel</option>
+                <option value="Parrot">Parrot</option>
 
             </select>
         </div>
