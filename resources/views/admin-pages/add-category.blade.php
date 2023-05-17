@@ -10,19 +10,19 @@
             <h1 class="kt-subheader__title">Category</h1>
             <span class="kt-subheader__separator kt-hidden"></span>
             <div class="kt-subheader__breadcrumbs">
-                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <a href="{{ route('admin.dashboard') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
                     Categories </a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
                     Add Categories </a>
-                
+
 
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -34,7 +34,7 @@
         <div class="form-group form-group-last">
             <div class="alert alert-secondary" role="alert">
                 <div style="display: flex ;">
-<h3 style="color: black; font-size: 30px;">Add Category</h3>  
+<h3 style="color: black; font-size: 30px;">Add Category</h3>
 <a href="{{ route('admin.view-category') }}"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Categories</button></a>
 
                 </div>
