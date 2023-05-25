@@ -11,19 +11,19 @@
             <h1 class="kt-subheader__title">Orders</h1>
             <span class="kt-subheader__separator kt-hidden"></span>
             <div class="kt-subheader__breadcrumbs">
-                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <a href="{{ route('admin.dashboard') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
                     Orders </a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
                     Manage Order</a>
-                
+
 
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -38,7 +38,7 @@
                 Basic Example
             </h3>
         </div>
-        
+
     </div>
     <div class="kt-portlet__body">
 
@@ -63,7 +63,7 @@
                     <td>China</td>
                     <td>Tieba</td>
                     <td>746 Pine View Junction</td>
-                    
+
                     <td>2/12/2018</td>
                     <td>
                         <span class="badge badge-pill badge-primary">Primary</span>

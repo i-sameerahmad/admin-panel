@@ -10,19 +10,19 @@
             <h1 class="kt-subheader__title">Coupan</h1>
             <span class="kt-subheader__separator kt-hidden"></span>
             <div class="kt-subheader__breadcrumbs">
-                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <a href="{{ route('admin.dashboard') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
                     Coupans </a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a href="" class="kt-subheader__breadcrumbs-link">
                     Add Coupans </a>
-                
+
 
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -34,7 +34,7 @@
         <div class="form-group form-group-last">
             <div class="alert alert-secondary" role="alert">
                 <div style="display: flex ;">
-<h3 style="color: black; font-size: 30px;">Add Coupan</h3>  
+<h3 style="color: black; font-size: 30px;">Add Coupan</h3>
 <a href="coupan-list"><button style="margin-left: 300px ;" type="button" class="btn btn-primary btn-wide">View Coupans</button></a>
 
                 </div>
@@ -48,7 +48,7 @@
             <label for="exampleInputPassword1">Description</label>
             <input type="text" name="discount_description" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
-        
+
         <div class="form-group">
             <label for="exampleInputPassword1">Discount Percentage</label>
             <input type="number" name="discount_percentage" class="form-control" id="exampleInputPassword1" placeholder="percentage">
@@ -59,7 +59,7 @@
             <select class="form-control" id="exampleSelect1" name="status">
                <option value="active">Active</option>
                <option value="inactive">Inactive</option>
-               
+
             </select>
         </div>
 
