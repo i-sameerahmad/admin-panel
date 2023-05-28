@@ -50,6 +50,11 @@
         </div>
 
         <div class="form-group">
+            <label for="exampleInputPassword1">Qualification</label>
+            <input type="text" name="doc_qualification" class="form-control" id="exampleInputPassword1" placeholder="qualification">
+        </div>
+
+        <div class="form-group">
             <label for="exampleInputPassword1">Phone No.</label>
             <input type="text" name="doc_phone" class="form-control" id="exampleInputPassword1" placeholder="number">
         </div>

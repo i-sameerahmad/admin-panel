@@ -53,6 +53,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Qualification</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Fee</th>
@@ -69,6 +70,7 @@
                         <td>{{ $key+1 }}</td>
                         <td>{{ $doctor->doc_name }}</td>
                         <td>{{ $doctor->doc_description }}</td>
+                        <td>{{ $doctor->doc_qualification }}</td>
                         <td>{{ $doctor->doc_phone }}</td>
                         <td>{{ $doctor->doc_email }}</td>
                         <td>{{ $doctor->doc_fee }}</td>
