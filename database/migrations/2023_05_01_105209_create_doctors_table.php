@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('doc_name');
             $table->string('doc_description');
-            $table->string('doc_phone');
+            $table->integer('doc_phone');
             $table->string('doc_email');
+            $table->integer('doc_fee');
             $table->string('doc_address');
+            $table->string('doc_slot');
             $table->string('doc_status');
             $table->string('doc_image');
             $table->timestamps();

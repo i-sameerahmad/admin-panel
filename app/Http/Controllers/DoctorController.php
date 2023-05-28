@@ -72,7 +72,9 @@ $doctors=Doctor::all();
             'doc_description' => 'required',
             'doc_phone' => 'required|min:8|max:11|regex:/^([0-9\s\-\+\(\)]*)$/',
             'doc_email' => 'required',
+            'doc_fee' => 'required',
             'doc_address' => 'required',
+            'doc_slot' => 'required',
             'doc_status' => 'required',
 // 'doc_image'=>'required',
         ]);
@@ -129,7 +131,9 @@ $doctors=Doctor::all();
             'doc_description' => 'required',
             'doc_phone' => 'required|min:8|max:11|regex:/^([0-9\s\-\+\(\)]*)$/',
             'doc_email' => 'required',
+            'doc_fee' => 'required',
             'doc_address' => 'required',
+            'doc_slot' => 'required',
             'doc_status' => 'required',
             // 'product_image' => 'required',
         ]);
