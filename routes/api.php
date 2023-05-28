@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +16,14 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::post('/auth/register', [AuthController::class, 'createUser']);
+Route::post('/auth/login', [AuthController::class, 'loginUser']);
+Route::get('/pets', [PetController::class, 'index']);
+   Route::post('/pets', [PetController::class, 'store']);
+   Route::get('/pets/{id}', [PetController::class, 'show']);
+   Route::put('/pets/{id}', [PetController::class, 'update']);
+   Route::delete('/pets/{id}', [PetController::class, 'destroy']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('getdoctor', [DoctorController::class, 'getDoctors']);
