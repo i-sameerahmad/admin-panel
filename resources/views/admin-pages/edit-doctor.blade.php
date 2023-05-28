@@ -48,6 +48,12 @@
             <label for="exampleInputPassword1">Description</label>
             <input type="text" name="doc_description" value="{{ $doctor->doc_description }}" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Qualification</label>
+            <input type="text" name="doc_qualification" value="{{ $doctor->doc_qualification}}" class="form-control" id="exampleInputPassword1" placeholder="qualification">
+        </div>
+
         <div class="form-group">
             <label for="exampleInputPassword1">Phone</label>
             <input type="text" name="doc_phone" value="{{ $doctor->doc_phone }}" class="form-control" id="exampleInputPassword1" placeholder="Description">
