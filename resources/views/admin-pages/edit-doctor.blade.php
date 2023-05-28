@@ -52,14 +52,27 @@
             <label for="exampleInputPassword1">Phone</label>
             <input type="text" name="doc_phone" value="{{ $doctor->doc_phone }}" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
+
         <div class="form-group">
             <label for="exampleInputPassword1">Email</label>
             <input type="text" name="doc_email" value="{{ $doctor->doc_email }}" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Fee</label>
+            <input type="text" name="doc_fee" value="{{ $doctor->doc_fee }}" class="form-control" id="exampleInputPassword1" placeholder="Description">
+        </div>
+
         <div class="form-group">
             <label for="exampleInputPassword1">Address</label>
             <input type="text" name="doc_address" value="{{ $doctor->doc_address }}" class="form-control" id="exampleInputPassword1" placeholder="Description">
         </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Available Slot</label>
+            <input type="text" name="doc_slot" value="{{ $doctor->doc_slot }}" class="form-control" id="exampleInputPassword1" placeholder="Description">
+        </div>
+
         <div class="form-group">
             <label for="exampleSelect1">Status</label>
             <select class="form-control" id="exampleSelect1" name="doc_status">

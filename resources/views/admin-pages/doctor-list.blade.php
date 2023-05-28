@@ -55,7 +55,9 @@
                         <th>Description</th>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th>Address ID</th>
+                        <th>Fee</th>
+                        <th>Address </th>
+                        <th>Slot </th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -69,7 +71,10 @@
                         <td>{{ $doctor->doc_description }}</td>
                         <td>{{ $doctor->doc_phone }}</td>
                         <td>{{ $doctor->doc_email }}</td>
+                        <td>{{ $doctor->doc_fee }}</td>
                         <td>{{ $doctor->doc_address }}</td>
+                        <td>{{ $doctor->doc_slot }}</td>
+
                         <td>
                             <span class="badge badge-pill badge-primary">{{ $doctor->doc_status }}</span>
                             </td>

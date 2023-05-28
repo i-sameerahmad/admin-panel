@@ -60,9 +60,20 @@
         </div>
 
         <div class="form-group">
+            <label for="exampleInputPassword1">Doctor Fee</label>
+            <input type="text" name="doc_fee" class="form-control" id="exampleInputPassword1" placeholder="fee">
+        </div>
+
+        <div class="form-group">
             <label for="exampleInputPassword1">Address</label>
             <input type="text" name="doc_address" class="form-control" id="exampleInputPassword1" placeholder="address">
         </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Available Slot</label>
+            <input type="text" name="doc_slot" class="form-control" id="exampleInputPassword1" placeholder="slot">
+        </div>
+
         <div class="form-group">
             <label for="exampleSelect1">Status</label>
             <select class="form-control" id="exampleSelect1" name="doc_status">
@@ -70,6 +81,7 @@
                 <option value="Inactive">Inactive</option>
             </select>
         </div>
+
         <!-- <div class="form-group">
             <label for="exampleInputPassword1">Price</label>
             <input type="number" name="product_price" class="form-control" id="exampleInputPassword1" placeholder="Price">
