@@ -25,7 +25,13 @@ class DoctorController extends Controller
 
         return view('admin-pages.add-doctor');
     }
-
+    public function getDoctors()
+    {
+$doctors=Doctor::all();
+return response()->json([
+    'data' => $doctors,
+]);
+    }
     public function list()
     {
     //     $categories = Category::all();
@@ -60,6 +66,7 @@ $doctors=Doctor::all();
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $doctor = $request->validate([
             'doc_name' => 'required',
             'doc_description' => 'required',
