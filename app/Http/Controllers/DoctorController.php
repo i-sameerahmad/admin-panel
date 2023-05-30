@@ -25,28 +25,24 @@ class DoctorController extends Controller
 
         return view('admin-pages.add-doctor');
     }
+
     public function getDoctors()
     {
-$doctors=Doctor::all();
-return response()->json([
-    'data' => $doctors,
-]);
+        $doctors=Doctor::all();
+        return $doctors;
     }
+
     public function list()
     {
-    //     $categories = Category::all();
-    //     $colors = Color::all();
-    //     $sizes = Size::all();
-    //     $coupans = Discount::all();
-$doctors=Doctor::all();
-    //     // $product = Product::find($id);
-    //     // $quantity = Inventory::where('product_id',$id)->get();
-    //    // dd($quantity);
-    //     return view('admin-pages.doctor-list', compact('product','quantity' ,'categories', 'colors', 'sizes', 'coupans'));
-         return view('admin-pages.doctor-list', compact('doctors'));
+        $doctors=Doctor::all();
+        return view('admin-pages.doctor-list', compact('doctors'));
     }
 
-
+    public function getDoctor($id){
+        // dd($id);
+        $doctor = Doctor::where('id', $id)->get();
+        return $doctor;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -110,10 +106,7 @@ $doctors=Doctor::all();
      */
     public function edit($id)
     {
-
         $doctor = Doctor::find($id);
-        // $quantity = Inventory::where('product_id',$id)->get();
-       // dd($quantity);
         return view('admin-pages.edit-doctor', compact('doctor'));
     }
 
