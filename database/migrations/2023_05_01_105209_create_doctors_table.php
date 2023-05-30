@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('doc_name');
             $table->string('doc_description');
             $table->string('doc_qualification');
-            $table->integer('doc_phone');
+            $table->BigInteger('doc_phone');
             $table->string('doc_email');
             $table->integer('doc_fee');
             $table->string('doc_address');
