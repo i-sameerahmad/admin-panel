@@ -3,6 +3,7 @@
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('getdoctor', [DoctorController::class, 'getDoctors']);
+Route::get('getdoctor/{id}', [DoctorController::class, 'getDoctor']);
+Route::get('getproducts', [ProductController::class, 'getProducts']);
+Route::get('getproduct/{id}', [ProductController::class, 'getProduct']);

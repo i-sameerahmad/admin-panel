@@ -25,14 +25,19 @@ class ProductController extends Controller
     {
 
         $products = Product::all();
-     //   dd($products);
-       // echo $products[2]->inventory->quantity;
        return view('admin-pages.product-list', compact('products'));
-        //   dd($products);
-
-
+    }
+    public function getProducts()
+    {
+        $products=Product::all();
+        return $products;
     }
 
+    public function getProduct($id){
+        // dd($id);
+        $product = Product::where('id', $id)->get();
+        return $product;
+    }
     /**
      * Show the form for creating a new resource.
      *
