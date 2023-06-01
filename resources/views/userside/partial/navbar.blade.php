@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-  
+
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -90,7 +90,7 @@ margin-top: 10px;
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="logo">
-<img class="img" src="/uploads/logof.png" alt="">
+<img class="img" src="/images/logof.png" alt="">
       </div>
 <form action="{{ route('user.search') }}" enctype="multipart/form-data" method="get">
   @csrf
@@ -108,9 +108,9 @@ margin-top: 10px;
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <a href="cartview"> <i style="color: black; margin-right:15px;" class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> </a>
-              
+
 <div style="margin-right: 20px;" class="nav-item dropdown">
   <li class="nav-link"> <i class="fa fa-user fa-2x" aria-hidden="true"></i> </li>
   <div class="dropdown-content">
@@ -129,7 +129,7 @@ margin-top: 10px;
             <li class="nav-item">
               <a class="nav-link" href="{{ route('user.product') }}">Products</a>
             </li>
-            
+
 <div class="nav-item dropdown">
   <li class="nav-link">Categories</li>
   <div class="dropdown-content">
@@ -153,7 +153,7 @@ margin-top: 10px;
         </div>
       </div>
     </nav>
-              
+
 </body>
 </html>
 

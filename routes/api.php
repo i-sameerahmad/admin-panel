@@ -31,3 +31,5 @@ Route::get('getdoctor', [DoctorController::class, 'getDoctors']);
 Route::get('getdoctor/{id}', [DoctorController::class, 'getDoctor']);
 Route::get('getproducts', [ProductController::class, 'getProducts']);
 Route::get('getproduct/{id}', [ProductController::class, 'getProduct']);
+Route::get('getpets', [PetController::class, 'getPets']);
+Route::get('getpet/{id}', [PetController::class, 'getPet']);

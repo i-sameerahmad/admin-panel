@@ -77,7 +77,7 @@ class ProductController extends Controller
         if ($request->hasFile('product_image')) {
             $file = $request->file('product_image');
             $product['product_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $file->getClientOriginalName());
+            $file->move('storage/app/public/', $file->getClientOriginalName());
         }
         Product::create($product);
         return redirect(route('admin.product-list'));
@@ -149,12 +149,12 @@ class ProductController extends Controller
 
         if ($request->hasfile('product_image')) {
             // delete old file from dir
-            File::delete('uploads/' . $found_product->product_image);
+            File::delete('images/' . $found_product->product_image);
 
             // put new file in dir
             $file = $request->file('product_image');
             $product['product_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $product['product_image']);
+            $file->move('images/', $product['product_image']);
         }
 
 

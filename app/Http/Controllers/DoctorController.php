@@ -79,7 +79,7 @@ class DoctorController extends Controller
         if ($request->hasFile('doc_image')) {
             $file = $request->file('doc_image');
             $doctor['doc_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $file->getClientOriginalName());
+            $file->move('images/', $file->getClientOriginalName());
         }
 
         Doctor::create($doctor);
@@ -135,12 +135,12 @@ class DoctorController extends Controller
 
         if ($request->hasfile('doc_image')) {
             // delete old file from dir
-            File::delete('uploads/' . $found_doctor->doc_image);
+            File::delete('images/' . $found_doctor->doc_image);
 
             // put new file in dir
             $file = $request->file('doc_image');
             $doctor['doc_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $doctor['doc_image']);
+            $file->move('images/', $doctor['doc_image']);
         }
 
 

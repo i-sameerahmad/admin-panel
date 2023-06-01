@@ -21,7 +21,17 @@ class PetController extends Controller
             'data' => $pets,
         ]);
     }
+    public function getPets()
+    {
+        $products=Pet::all();
+        return $products;
+    }
 
+    public function getPet($id){
+        // dd($id);
+        $product = Pet::where('id', $id)->get();
+        return $product;
+    }
     public function store(Request $request)
     {
         // dd($request);

@@ -36,23 +36,23 @@ class OrderController extends Controller
     public function store(Request $request)
     {
       //  dd(\Cart::session(auth()->id())->getTotal());
-      $total =  \Cart::session(auth()->id())->getTotal();
+    //   $total =  \Cart::session(auth()->id())->getTotal();
       $user = auth()->id();
 
       $order = [
 
-        'total' => $total,
+        // 'total' => $total,
         'user_id' => $user,
 
       ];
       Order::create($order);
-      
-      $cartitems = \Cart::session(auth()->id())->getContent();
-      $count = count($cartitems);
-      
-      \Cart::session(auth()->id())->clear();
+
+    //   $cartitems = \Cart::session(auth()->id())->getContent();
+    //   $count = count($cartitems);
+
+    //   \Cart::session(auth()->id())->clear();
       return redirect(route('user.dashboard'));
-      
+
     }
 
     /**
