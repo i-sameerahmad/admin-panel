@@ -15,6 +15,10 @@ class DoctorReviewController extends Controller
         //
     }
 
+    public function list($id){
+        $reviews=DoctorReview::where('doctorId', $id)->get();
+        return $reviews;
+        }
     /**
      * Show the form for creating a new resource.
      */
@@ -28,7 +32,19 @@ class DoctorReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $DoctorReview = $request->validate([
+            'userId' => 'required',
+            'userName' => 'required',
+            'review' => 'required',
+            'rating' => 'required',
+            'doctorId' => 'required',
+        ]);
+
+        DoctorReview::create($DoctorReview);
+
+        return response()->json([
+            'data' => $DoctorReview,
+        ]);
     }
 
     /**

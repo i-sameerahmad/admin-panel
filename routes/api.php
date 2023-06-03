@@ -4,6 +4,8 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductReviewController;
+use App\Http\Controllers\DoctorReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +35,7 @@ Route::get('getproducts', [ProductController::class, 'getProducts']);
 Route::get('getproduct/{id}', [ProductController::class, 'getProduct']);
 Route::get('getpets', [PetController::class, 'getPets']);
 Route::get('getpet/{id}', [PetController::class, 'getPet']);
+Route::post('productReview', [ProductReviewController::class, 'store']);
+Route::get('productReviews/{id}', [ProductReviewController::class, 'list']);
+Route::post('doctorReview', [DoctorReviewController::class, 'store']);
+Route::get('doctorReviews/{id}', [DoctorReviewController::class, 'list']);

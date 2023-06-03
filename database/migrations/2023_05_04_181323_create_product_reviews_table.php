@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('product_reviews', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users');
+            $table->String('userName');
+            $table->String('review');
+            $table->decimal('rating', 8, 2);
+            $table->unsignedBigInteger('productId');
+            $table->foreign('productId')->references('id')->on('products');
             $table->timestamps();
         });
     }

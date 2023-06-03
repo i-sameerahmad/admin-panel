@@ -77,7 +77,7 @@ class ProductController extends Controller
         if ($request->hasFile('product_image')) {
             $file = $request->file('product_image');
             $product['product_image'] = $file->getClientOriginalName();
-            $file->move('storage/app/public/', $file->getClientOriginalName());
+            $file->move('images/', $file->getClientOriginalName());
         }
         Product::create($product);
         return redirect(route('admin.product-list'));
