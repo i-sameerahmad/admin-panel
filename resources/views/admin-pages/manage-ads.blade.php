@@ -57,32 +57,35 @@
                         <th>Age</th>
                         <th>Price</th>
                         <th>Category</th>
-                        <th>Actions</th>
+                        <th>Certification</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Approve</th>
+
                     </tr>
                 </thead>
-                {{-- <tbody>
+                <tbody>
                     @forelse($pets as $key=>$pet)
-
                     <tr>
                         <td>{{ $key+1 }}</td>
-                        <td>{{ $pet->vpet_name }}</td>
-                        <td>{{ $pet->vpet_description }}</td>
-                        <td>{{ $pet->vpet_gender}}</td>
-                        <td>{{ $pet->vpet_age }}</td>
-                        <td>{{ $pet->vpet_price }}</td>
-                        <td>{{ $pet->vpet_category }}</td>
-
+                        <td>{{ $pet->title }}</td>
+                        <td>{{ $pet->description }}</td>
+                        <td>{{ $pet->gender}}</td>
+                        <td>{{ $pet->age }}</td>
+                        <td>{{ $pet->price }}</td>
+                        <td>{{ $pet->category }}</td>
+                        <td>{{ $pet->certificate }}</td>
+                        <td><img style="width: 100px; height:80px; " src="{{$pet->image}}"/></td>
+                        <td>{{ $pet->status }}</td>
 
                         <td nowrap>
-                            <a href="edit-pets/{{ $pet->id }}"><button type="button" class="btn btn-accent btn-icon"><i class="fa fa-pen"></i></button></a>&nbsp;
-                            <a href="delete-pet/{{ $pet->id }}"><button type="button" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button></a>&nbsp;</td>
-
+                            <a href="approve/{{ $pet->id }}"><button type="button" class="btn btn-accent btn-icon"><i class="fa fa-check"></i></button></a>&nbsp;
                         </td>
                     </tr>
                     @empty
                     No Data Found
                 @endforelse
-                    </tbody> --}}
+                    </tbody>
 
             </table>
 

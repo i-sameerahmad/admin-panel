@@ -60,7 +60,9 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request){
+
     $user = User::create([
         'name' => $request->input('doc_name'),
         'email' => $request->input('doc_email'),
@@ -89,13 +91,14 @@ class DoctorController extends Controller
         'email' => $request->input('doc_email'),
         'password' => 'randomtext',
     ];
-// Mail::to('fake@gmail.com')->send(new credentials);
+
 
 Mail::send('view', $emailData, function ($message) use ($emailData) {
     $message->to($emailData['email'])
             ->subject('Account Registration')
             ->from('your-email@example.com');
 });
+
     Doctor::create($doctor);
 
     return redirect(route('admin.doctor-list'));
