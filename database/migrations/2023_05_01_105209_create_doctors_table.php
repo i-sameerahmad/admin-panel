@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('doc_slot');
             $table->string('doc_status');
             $table->string('doc_image');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

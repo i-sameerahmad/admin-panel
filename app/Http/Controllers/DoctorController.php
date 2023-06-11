@@ -69,7 +69,7 @@ class DoctorController extends Controller
         'password' => bcrypt('randomtext'),
         'user_type' => 2,
     ]);
-
+// dd($user->id);
     $doctor = $request->validate([
         'doc_name' => 'required',
         'doc_description' => 'required',
@@ -81,7 +81,7 @@ class DoctorController extends Controller
         'doc_slot' => 'required',
         'doc_status' => 'required',
     ]);
-
+$doctor['user_id'] = $user->id;
     if ($request->hasFile('doc_image')) {
         $file = $request->file('doc_image');
         $doctor['doc_image'] = $file->getClientOriginalName();
