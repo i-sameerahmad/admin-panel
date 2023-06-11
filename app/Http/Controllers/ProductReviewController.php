@@ -14,7 +14,10 @@ class ProductReviewController extends Controller
     {
         //
     }
-
+    public function list($id){
+    $reviews=ProductReview::where('productId', $id)->get();
+    return $reviews;
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -28,7 +31,19 @@ class ProductReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ProductReview = $request->validate([
+            'userId' => 'required',
+            'userName' => 'required',
+            'review' => 'required',
+            'rating' => 'required',
+            'productId' => 'required',
+        ]);
+
+        ProductReview::create($ProductReview);
+
+        return response()->json([
+            'data' => $ProductReview,
+        ]);
     }
 
     /**

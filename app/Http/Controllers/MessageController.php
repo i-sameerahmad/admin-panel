@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,10 @@ class OrderController extends Controller
     {
         //
     }
-
+public function list($id,$rid){
+$messages = Message::where('senderId',$id)->where('recipientId',$rid)->get();
+return $messages;
+}
     /**
      * Show the form for creating a new resource.
      *
@@ -35,33 +38,24 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-      //  dd(\Cart::session(auth()->id())->getTotal());
-    //   $total =  \Cart::session(auth()->id())->getTotal();
-      $user = auth()->id();
+        // dd($request);
+           $message = $request->validate([
+            'senderId' => 'required',
+            'recipientId' => 'required',
+            'content' => 'required',
+        ]);
+        Message::create($message);
 
-      $order = [
-
-        // 'total' => $total,
-        'user_id' => $user,
-
-      ];
-      Order::create($order);
-
-    //   $cartitems = \Cart::session(auth()->id())->getContent();
-    //   $count = count($cartitems);
-
-    //   \Cart::session(auth()->id())->clear();
-      return redirect(route('user.dashboard'));
-
+        return $message;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Message $message)
     {
         //
     }
@@ -69,10 +63,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(Message $message)
     {
         //
     }
@@ -81,10 +75,10 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Message $message)
     {
         //
     }
@@ -92,10 +86,10 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Message $message)
     {
         //
     }

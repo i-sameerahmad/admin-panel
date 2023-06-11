@@ -14,17 +14,17 @@
 
 </head>
 <body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed kt-page--loading">
-    
+
 
 	<!-- begin:: Header -->
     <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed ">
-<img style="width: 160px; height:50px; margin:10px 50px;" src="/uploads/logof.png" alt="">
+<img style="width: 160px; height:50px; margin:10px 50px;" src="/images/logof.png" alt="">
 
         <!-- begin:: Header Menu -->
         <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
         <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
             <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile  kt-header-menu--layout- ">
-                
+
             </div>
         </div>
 
@@ -234,12 +234,12 @@
             <!--end: Notifications -->
 
             <!--begin: Quick Actions -->
-         
+
 
             <!--end:: Languages -->
 
             <!--begin: User Bar -->
-          
+
 
             <!--end: User Bar -->
 
@@ -260,6 +260,6 @@
     <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 
         <!-- begin:: Subheader -->
-      
+
 </body>
 </html>

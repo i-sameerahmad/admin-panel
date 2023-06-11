@@ -1,17 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Category;
-use App\Models\Color;
-use App\Models\User;
-use App\Models\Size;
-use App\Models\Discount;
-use App\Models\Inventory;
-use App\Models\Product;
+
 use App\Models\Doctor;
+use App\Models\User;
+use App\Mail\credentials;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Storage;
 class DoctorController extends Controller
 {
@@ -45,6 +43,7 @@ class DoctorController extends Controller
         return $doctor;
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -61,9 +60,9 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-//
-public function store(Request $request)
-{
+
+    public function store(Request $request){
+
     $user = User::create([
         'name' => $request->input('doc_name'),
         'email' => $request->input('doc_email'),
@@ -93,16 +92,17 @@ public function store(Request $request)
         'password' => 'randomtext',
     ];
 
-    Mail::to($request->input('doc_email'))->send(new DoctorAccountCreated($emailData));
 
-    // Associate the created user with the doctor
-    // $doctor['user_id'] = $user->id;
+Mail::send('view', $emailData, function ($message) use ($emailData) {
+    $message->to($emailData['email'])
+            ->subject('Account Registration')
+            ->from('your-email@example.com');
+});
 
     Doctor::create($doctor);
 
     return redirect(route('admin.doctor-list'));
 }
-
 
     /**
      * Display the specified resource.
@@ -152,12 +152,12 @@ public function store(Request $request)
 
         if ($request->hasfile('doc_image')) {
             // delete old file from dir
-            File::delete('uploads/' . $found_doctor->doc_image);
+            File::delete('images/' . $found_doctor->doc_image);
 
             // put new file in dir
             $file = $request->file('doc_image');
             $doctor['doc_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $doctor['doc_image']);
+            $file->move('images/', $doctor['doc_image']);
         }
 
 
