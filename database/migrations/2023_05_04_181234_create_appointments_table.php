@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('doc_id');
+            $table->foreign('doc_id')->references('id')->on('doctors');
+            $table->text('description');
+            $table->text('date');
             $table->timestamps();
         });
     }
