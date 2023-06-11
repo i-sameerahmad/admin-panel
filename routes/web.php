@@ -48,6 +48,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('delete-pet/{id}', [VarifiedPetsController::class, 'destroy'])->name('admin.delete-pet');
 
     Route::get('manage-ad', [ManageAdController::class, 'index'])->name('admin.manage-ad');
+    Route::get('approve/{id}', [ManageAdController::class, 'approve'])->name('admin.approve');
 
     Route::post('create-doctor', [DoctorController::class, 'store'])->name('admin.create-doctor');
     Route::get('edit-doctor/{id}', [DoctorController::class, 'edit'])->name('admin.edit-doctor');
