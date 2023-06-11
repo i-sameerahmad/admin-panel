@@ -6,6 +6,7 @@ use App\Http\Controllers\PetController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\DoctorReviewController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,3 +40,6 @@ Route::post('productReview', [ProductReviewController::class, 'store']);
 Route::get('productReviews/{id}', [ProductReviewController::class, 'list']);
 Route::post('doctorReview', [DoctorReviewController::class, 'store']);
 Route::get('doctorReviews/{id}', [DoctorReviewController::class, 'list']);
+Route::post('message', [MessageController::class, 'store']);
+Route::get('getmessages/{id}/{rid}', [MessageController::class, 'list']);
+

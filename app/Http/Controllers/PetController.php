@@ -44,7 +44,7 @@ class PetController extends Controller
             'price' => 'required|numeric',
             'user_id' => 'required|numeric',
             'image' => 'nullable|image|max:2048', // Add validation rules for the image field
-            'certificate' => 'nullable|mimes:pdf|max:2048',
+            // 'certificate' => 'nullable|mimes:pdf|max:2048',
             'vaccinated' => 'nullable|boolean',
         ]);
         $pet = new Pet();
