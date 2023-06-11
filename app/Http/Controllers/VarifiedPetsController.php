@@ -68,7 +68,7 @@ class VarifiedPetsController extends Controller
         if ($request->hasFile('vpet_image')) {
             $file = $request->file('vpet_image');
             $pet['vpet_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $file->getClientOriginalName());
+            $file->move('images/', $file->getClientOriginalName());
         }
         varifiedPets::create($pet);
         return redirect(route('admin.pets-list'));
@@ -118,12 +118,12 @@ class VarifiedPetsController extends Controller
 
         if ($request->hasfile('vpet_image')) {
             // delete old file from dir
-            File::delete('uploads/' . $found_pet->vpet_image);
+            File::delete('images/' . $found_pet->vpet_image);
 
             // put new file in dir
             $file = $request->file('vpet_image');
             $pet['vpet_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $pet['vpet_image']);
+            $file->move('images/', $pet['vpet_image']);
         }
 
 

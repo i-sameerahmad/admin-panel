@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Category;
-use App\Models\Color;
-use App\Models\Size;
-use App\Models\Discount;
-use App\Models\Inventory;
-use App\Models\Product;
+
 use App\Models\Doctor;
+use App\Models\User;
+use App\Mail\credentials;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Storage;
 class DoctorController extends Controller
 {
@@ -44,6 +43,7 @@ class DoctorController extends Controller
         return $doctor;
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -60,32 +60,46 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        // dd($request->all());
-        $doctor = $request->validate([
-            'doc_name' => 'required',
-            'doc_description' => 'required',
-            'doc_qualification' => 'required',
-            'doc_phone' => 'required|min:8|max:11|regex:/^([0-9\s\-\+\(\)]*)$/',
-            'doc_email' => 'required',
-            'doc_fee' => 'required',
-            'doc_address' => 'required',
-            'doc_slot' => 'required',
-            'doc_status' => 'required',
-// 'doc_image'=>'required',
-        ]);
+    public function store(Request $request){
+    $user = User::create([
+        'name' => $request->input('doc_name'),
+        'email' => $request->input('doc_email'),
+        'password' => bcrypt('randomtext'),
+        'user_type' => 2,
+    ]);
 
-        if ($request->hasFile('doc_image')) {
-            $file = $request->file('doc_image');
-            $doctor['doc_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $file->getClientOriginalName());
-        }
+    $doctor = $request->validate([
+        'doc_name' => 'required',
+        'doc_description' => 'required',
+        'doc_qualification' => 'required',
+        'doc_phone' => 'required|min:8|max:11|regex:/^([0-9\s\-\+\(\)]*)$/',
+        'doc_email' => 'required',
+        'doc_fee' => 'required',
+        'doc_address' => 'required',
+        'doc_slot' => 'required',
+        'doc_status' => 'required',
+    ]);
 
-        Doctor::create($doctor);
-
-        return redirect(route('admin.doctor-list'));
+    if ($request->hasFile('doc_image')) {
+        $file = $request->file('doc_image');
+        $doctor['doc_image'] = $file->getClientOriginalName();
+        $file->move('uploads/', $file->getClientOriginalName());
     }
+    $emailData = [
+        'email' => $request->input('doc_email'),
+        'password' => 'randomtext',
+    ];
+// Mail::to('fake@gmail.com')->send(new credentials);
+
+Mail::send('view', $emailData, function ($message) use ($emailData) {
+    $message->to($emailData['email'])
+            ->subject('Account Registration')
+            ->from('your-email@example.com');
+});
+    Doctor::create($doctor);
+
+    return redirect(route('admin.doctor-list'));
+}
 
     /**
      * Display the specified resource.
@@ -135,12 +149,12 @@ class DoctorController extends Controller
 
         if ($request->hasfile('doc_image')) {
             // delete old file from dir
-            File::delete('uploads/' . $found_doctor->doc_image);
+            File::delete('images/' . $found_doctor->doc_image);
 
             // put new file in dir
             $file = $request->file('doc_image');
             $doctor['doc_image'] = $file->getClientOriginalName();
-            $file->move('uploads/', $doctor['doc_image']);
+            $file->move('images/', $doctor['doc_image']);
         }
 
 
