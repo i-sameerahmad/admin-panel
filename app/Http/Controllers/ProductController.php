@@ -48,7 +48,7 @@ class ProductController extends Controller
         // $categories = Category::all();
         // $colors = Color::all();
         // $sizes = Size::all();
-        $coupans = Discount::all();
+        // $coupans = Discount::all();
 
         return view('admin-pages.add-product');
         // , compact('categories', 'colors', 'sizes', 'coupans')

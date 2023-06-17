@@ -18,7 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('doc_id');
             $table->foreign('doc_id')->references('id')->on('doctors');
             $table->text('description');
+            $table->string('image')->nullable();
             $table->text('date');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

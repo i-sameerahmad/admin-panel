@@ -3,8 +3,10 @@
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\AdoptpetController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DoctorReviewController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Http\Request;
@@ -23,7 +25,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
 Route::get('/pets', [PetController::class, 'index']);
-   Route::post('/pets', [PetController::class, 'store']);
+Route::get('/getadoptpets', [AdoptpetController::class, 'getadoptPets']);
+Route::post('/adoptpet', [AdoptpetController::class, 'store']);
+Route::get('getadoptpet/{id}', [AdoptpetController::class, 'getadoptpet']);
+Route::post('/checkout', [OrderController::class, 'store']);
+
+Route::post('/pets', [PetController::class, 'store']);
    Route::get('/pets/{id}', [PetController::class, 'show']);
    Route::put('/pets/{id}', [PetController::class, 'update']);
    Route::delete('/pets/{id}', [PetController::class, 'destroy']);
