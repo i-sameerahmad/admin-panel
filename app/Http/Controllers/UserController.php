@@ -36,8 +36,8 @@ class UserController extends Controller
     }
     public function product_checkouts(){
         $profile = UserProfile::with('User')->where('user_id',auth()->id())->get();
-        $cartitems = \Cart::session(auth()->id())->getContent();
-      
+        // $cartitems = \Cart::session(auth()->id())->getContent();
+
         return view('userside.user_pages.checkout',compact('profile','cartitems'));
     }
 
@@ -51,7 +51,7 @@ class UserController extends Controller
         // echo count($cartitems);
         return view('userside.user_pages.about');
     }
-    
+
     public function contact_page(){
 
         return view('userside.user_pages.contact');
@@ -85,7 +85,7 @@ class UserController extends Controller
 $category = Category::find($id);
         return view('userside.user_pages.category',compact('products','category'));
     }
-   
+
     public function search(Request $request){
         $search = $request->get('query');
 
@@ -93,7 +93,7 @@ $category = Category::find($id);
         ->orWhere('product_description','like', '%' . $search . '%')->get();
          //dd($posts);
        return view('userside.user_pages.search', compact('products'));
-    
+
     }
 
 

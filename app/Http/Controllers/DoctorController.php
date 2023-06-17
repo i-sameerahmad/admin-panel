@@ -67,7 +67,7 @@ class DoctorController extends Controller
         'name' => $request->input('doc_name'),
         'email' => $request->input('doc_email'),
         'password' => bcrypt('randomtext'),
-        'user_type' => 2,
+        'user_type' => 3,
     ]);
 // dd($user->id);
     $doctor = $request->validate([
