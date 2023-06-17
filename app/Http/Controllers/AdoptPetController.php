@@ -17,6 +17,15 @@ class AdoptPetController extends Controller
         //
     }
 
+    public function getadoptPets(){
+        $products=AdoptPet::all();
+        return $products;
+    }
+
+    public function getadoptpet($id){
+        $product = AdoptPet::where('id', $id)->get();
+        return $product;
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +44,40 @@ class AdoptPetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'gender' => 'required|string',
+            'category' => 'required|string',
+            'age' => 'required|integer',
+            'user_id' => 'required|numeric',
+            'image' => 'nullable|image|max:2048',
+        ]);
+        $pet = new AdoptPet();
+        $pet->title = $validatedData['title'];
+        $pet->description = $validatedData['description'];
+        $pet->gender = $validatedData['gender'];
+        $pet->category = $validatedData['category'];
+        $pet->age = $validatedData['age'];
+        $pet->user_id = $validatedData['user_id'];
+
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $image->storeAs('images/', $filename);
+        //     $pet->image = $filename;
+        // }
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $pet['image'] = $image->getClientOriginalName();
+            $image->move('images/', $image->getClientOriginalName());
+        }
+
+        $pet->save();
+
+        return response()->json([
+            'data' => $pet,
+        ]);
     }
 
     /**

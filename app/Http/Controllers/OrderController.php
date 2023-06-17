@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderItems;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -35,32 +36,37 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-      //  dd(\Cart::session(auth()->id())->getTotal());
-    //   $total =  \Cart::session(auth()->id())->getTotal();
-      $user = auth()->id();
+        $request->validate([
+            'productIds' => 'required',
+            'quantities' => 'required',
+            'userId' => 'required',
+            'total' => 'required',
+        ]);
 
-      $order = [
+        // Create an order
+        $order = Order::create([
+            'total' => $request->input('total'), // You can calculate the total here
+            'user_id' => $request->input('userId'), // Assuming you have authentication set up
+        ]);
+        // Get the product ids and quantities
+        $productIds = explode(',', $request->input('productIds'));
+        $quantities = explode(',', $request->input('quantities'));
 
-        // 'total' => $total,
-        'user_id' => $user,
+        // Create order items
+        foreach ($productIds as $index => $productId) {
+            OrderItems::create([
+                'quantity' => $quantities[$index],
+                'order_id' => $order->id,
+                'product_id' => $productId,
+            ]);
+        }
 
-      ];
-      Order::create($order);
-
-    //   $cartitems = \Cart::session(auth()->id())->getContent();
-    //   $count = count($cartitems);
-
-    //   \Cart::session(auth()->id())->clear();
-      return redirect(route('user.dashboard'));
-
+        return response()->json(['message' => 'Order placed successfully']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
+
+
+
     public function show(Order $order)
     {
         //
