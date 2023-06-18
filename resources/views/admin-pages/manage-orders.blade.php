@@ -50,6 +50,10 @@
                     <th>User</th>
                     <th>Total</th>
                     <th>Email</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>PaymentMethod</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
@@ -59,9 +63,15 @@
                 <tr>
                     echo $order;
                     <td>{{ $order->id }}</td>
-                    <td>{{ $order->User->name }}</td>
+                    <td>{{ $order->user_id }}</td>
                     <td>{{ $order->total }}</td>
-                    <td>{{ $order->User->email }}</td>
+                    <td>{{ $order->email }}</td>
+                    <td>{{ $order->name }}</td>
+                    <td>{{ $order->phone }}</td>
+                    <td>{{ $order->address }}</td>
+                    <td>{{ $order->paymentMethod }}</td>
+
+
                     <td>
                         <span class="badge badge-pill badge-primary">Primary</span>
 
