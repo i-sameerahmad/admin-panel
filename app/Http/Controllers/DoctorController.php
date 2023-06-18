@@ -30,7 +30,10 @@ class DoctorController extends Controller
         $doctors=Doctor::all();
         return $doctors;
     }
-
+public function getDoctorid($email){
+    $id = User::where('email', $email)->get();
+    return $id[0]->id;
+}
     public function list()
     {
         $doctors=Doctor::all();

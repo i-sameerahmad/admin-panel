@@ -24,6 +24,10 @@ return new class extends Migration
             $table->string('status')->default('pending');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('user_name');
+            $table->string('user_address');
+            $table->string('user_phone');
+            $table->string('user_email');
             $table->timestamps();
         });
     }

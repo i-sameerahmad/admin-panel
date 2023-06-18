@@ -4,6 +4,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\AdoptpetController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\OrderController;
@@ -39,6 +40,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('getdoctor', [DoctorController::class, 'getDoctors']);
 Route::get('getdoctor/{id}', [DoctorController::class, 'getDoctor']);
+Route::get('getdoctorid/{email}', [DoctorController::class, 'getDoctorid']);
+Route::get('getNames/{ids}', [AuthController::class, 'getNames']);
 Route::get('getproducts', [ProductController::class, 'getProducts']);
 Route::get('getproduct/{id}', [ProductController::class, 'getProduct']);
 Route::get('getpets', [PetController::class, 'getPets']);
@@ -49,4 +52,4 @@ Route::post('doctorReview', [DoctorReviewController::class, 'store']);
 Route::get('doctorReviews/{id}', [DoctorReviewController::class, 'list']);
 Route::post('message', [MessageController::class, 'store']);
 Route::get('getmessages/{id}/{rid}', [MessageController::class, 'list']);
-
+Route::post('addAppointment', [AppointmentController::class, 'store']);

@@ -52,6 +52,10 @@ class AdoptPetController extends Controller
             'age' => 'required|integer',
             'user_id' => 'required|numeric',
             'image' => 'nullable|image|max:2048',
+            'user_name'=> 'required|string',
+            'user_email'=> 'required|string',
+            'user_phone'=> 'required|string',
+            'user_address'=> 'required|string',
         ]);
         $pet = new AdoptPet();
         $pet->title = $validatedData['title'];
@@ -60,7 +64,10 @@ class AdoptPetController extends Controller
         $pet->category = $validatedData['category'];
         $pet->age = $validatedData['age'];
         $pet->user_id = $validatedData['user_id'];
-
+        $pet->user_name = $validatedData['user_name'];
+        $pet->user_email = $validatedData['user_email'];
+        $pet->user_phone = $validatedData['user_phone'];
+        $pet->user_address = $validatedData['user_address'];
         // if ($request->hasFile('image')) {
         //     $image = $request->file('image');
         //     $filename = time() . '.' . $image->getClientOriginalExtension();

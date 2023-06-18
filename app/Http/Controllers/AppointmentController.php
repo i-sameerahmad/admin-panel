@@ -28,7 +28,30 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'description' => 'required|string',
+            'date' => 'required|string',
+            'userId' => 'required|string',
+            'doctorId' => 'required|integer',
+
+        ]);
+        $appointment = new Appointment();
+        $appointment->user_id = $validatedData['userId'];
+        $appointment->doc_id = $validatedData['doctorId'];
+        $appointment->description = $validatedData['description'];
+        $appointment->date = $validatedData['date'];
+
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $appointment['image'] = $image->getClientOriginalName();
+            $image->move('images/', $image->getClientOriginalName());
+        }
+        $appointment->save();
+
+        return response()->json([
+            'data' => $appointment,
+        ]);
     }
 
     /**
