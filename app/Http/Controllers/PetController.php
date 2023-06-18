@@ -34,7 +34,6 @@ class PetController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request);
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -43,9 +42,13 @@ class PetController extends Controller
             'age' => 'required|integer',
             'price' => 'required|numeric',
             'user_id' => 'required|numeric',
-            'image' => 'nullable|image|max:2048', // Add validation rules for the image field
-            // 'certificate' => 'nullable|mimes:pdf|max:2048',
+            'image' => 'nullable|image|max:2048',
             'vaccinated' => 'nullable|boolean',
+            'user_name'=> 'required|string',
+            'user_email'=> 'required|string',
+            'user_phone'=> 'required|string',
+            'user_address'=> 'required|string',
+
         ]);
         $pet = new Pet();
         $pet->title = $validatedData['title'];
@@ -57,13 +60,12 @@ class PetController extends Controller
         $pet->user_id = $validatedData['user_id'];
         $pet->status = 'pending';
         $pet->vaccinated = $validatedData['vaccinated'] ?? false;
+        $pet->user_name = $validatedData['user_name'];
+        $pet->user_email = $validatedData['user_email'];
+        $pet->user_phone = $validatedData['user_phone'];
+        $pet->user_address = $validatedData['user_address'];
 
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $image->storeAs('images/', $filename);
-        //     $pet->image = $filename;
-        // }
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $pet['image'] = $image->getClientOriginalName();
@@ -74,10 +76,6 @@ class PetController extends Controller
             $pet['certificate'] = $certificate->getClientOriginalName();
             $certificate->move('certificates/', $certificate->getClientOriginalName());
 
-            // $certificate = $request->file('certificate');
-            // $certificateFilename = time() . '_' . $certificate->getClientOriginalName();
-            // $certificate->storeAs('public/certificates', $certificateFilename);
-            // $pet->certificate = $certificateFilename;
         }
         $pet->save();
 

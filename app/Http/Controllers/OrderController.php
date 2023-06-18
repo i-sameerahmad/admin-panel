@@ -41,12 +41,23 @@ class OrderController extends Controller
             'quantities' => 'required',
             'userId' => 'required',
             'total' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'paymentMethod' => 'required',
         ]);
 
         // Create an order
         $order = Order::create([
             'total' => $request->input('total'), // You can calculate the total here
-            'user_id' => $request->input('userId'), // Assuming you have authentication set up
+            'user_id' => $request->input('userId'),
+            'name' => $request->input('name'), // Assuming you have authentication set up
+            'email' => $request->input('email'), // Assuming you have authentication set up
+            'phone' => $request->input('phone'), // Assuming you have authentication set up
+            'address' => $request->input('address'), // Assuming you have authentication set up
+            'paymentMethod' => $request->input('paymentMethod'), // Assuming you have authentication set up
+             // Assuming you have authentication set up
         ]);
         // Get the product ids and quantities
         $productIds = explode(',', $request->input('productIds'));

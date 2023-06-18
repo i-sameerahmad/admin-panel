@@ -60,6 +60,13 @@ class AuthController extends Controller
         }
     }
 
+// Route::get('getNames/{ids}', [AuthController::class, 'getNames']);
+function getNames($ids) {
+    $names = User::where('id', $ids)
+        ->pluck('name');
+
+    return $names;
+}
     /**
      * Login The User
      * @param Request $request
