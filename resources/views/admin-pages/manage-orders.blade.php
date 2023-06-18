@@ -46,25 +46,32 @@
         <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_1">
             <thead>
                 <tr>
-                    <th>Sr no.</th>
-                    <th>Customer name</th>
                     <th>Order ID</th>
-                    <th>Bill</th>
-                    <th>Ship Address</th>
-                    <th>Payment</th>
+                    <th>User</th>
+                    <th>Total</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>PaymentMethod</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
+                @forelse($orders as $key=>$order)
                 <tr>
-                    <td>1</td>
-                    <td>61715-075</td>
-                    <td>China</td>
-                    <td>Tieba</td>
-                    <td>746 Pine View Junction</td>
+                    echo $order;
+                    <td>{{ $order->id }}</td>
+                    <td>{{ $order->user_id }}</td>
+                    <td>{{ $order->total }}</td>
+                    <td>{{ $order->email }}</td>
+                    <td>{{ $order->name }}</td>
+                    <td>{{ $order->phone }}</td>
+                    <td>{{ $order->address }}</td>
+                    <td>{{ $order->paymentMethod }}</td>
 
-                    <td>2/12/2018</td>
+
                     <td>
                         <span class="badge badge-pill badge-primary">Primary</span>
 
@@ -74,6 +81,9 @@
                         <button type="button" class="btn btn-accent btn-icon"><i class="fa fa-pen"></i></button>&nbsp;
                         <button type="button" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button>&nbsp;</td>
                 </tr>
+                @empty
+                No Data Found
+            @endforelse
            </tbody>
         </table>
 
