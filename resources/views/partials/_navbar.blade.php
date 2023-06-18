@@ -18,7 +18,7 @@
 
 	<!-- begin:: Header -->
     <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed ">
-<img style="width: 160px; height:50px; margin:10px 50px;" src="/images/logof.png" alt="">
+    <img src="/assets/images/logoo.png" alt="Logo" style="width: 160px; height:50px; margin:10px 50px;" >
 
         <!-- begin:: Header Menu -->
         <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i></button>

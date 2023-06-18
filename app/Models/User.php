@@ -48,4 +48,10 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class);
 
     }
+
+    public function order ()
+    {
+        return $this->hasMany(Order::class);
+
+    }
 }
