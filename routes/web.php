@@ -8,10 +8,10 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\ManageAdController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\OrderController;
-
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\VarifiedPetsController;
 
@@ -48,6 +48,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('delete-pet/{id}', [VarifiedPetsController::class, 'destroy'])->name('admin.delete-pet');
 
     Route::get('manage-ad', [ManageAdController::class, 'index'])->name('admin.manage-ad');
+    Route::get('booking', [BookingController::class, 'index'])->name('admin.booking');
+    Route::get('user', [UserController::class, 'index'])->name('admin.user');
+
+
     Route::get('approve/{id}', [ManageAdController::class, 'approve'])->name('admin.approve');
 
     Route::post('create-doctor', [DoctorController::class, 'store'])->name('admin.create-doctor');

@@ -113,6 +113,8 @@
 								</li>
 
 								<li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin.manage-ad')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Manage Ads</span></a></li>
+								<li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin.booking')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Booking</span></a></li>
+								<li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin.user')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Users</span></a></li>
 
 
                                 {{-- <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-telegram-logo"></i><span class="kt-menu__link-text">Manage Ads</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>

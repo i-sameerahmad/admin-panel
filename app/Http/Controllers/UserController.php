@@ -16,12 +16,22 @@ class UserController extends Controller
 {
 
     public function home(){
-        $products = Product::paginate(15);
+      //  $products = Product::paginate(15);
        // dd($products);
         return view('userside.user_pages.home',compact('products'));
         //  return view('try',compact('products'));
 
     }
+    public function index(){
+        //  $products = Product::paginate(15);
+         // dd($products);
+         $users=User::all();
+          return view('admin-pages.user',compact('users'));
+          //  return view('try',compact('products'));
+
+      }
+
+
 
     // public function product_detail(){
 

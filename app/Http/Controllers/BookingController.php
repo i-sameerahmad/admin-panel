@@ -14,7 +14,10 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+$orders=Booking::all();
+
+// dd($pets);
+        return view('admin-pages.booking', compact('orders'));
     }
 
     /**
