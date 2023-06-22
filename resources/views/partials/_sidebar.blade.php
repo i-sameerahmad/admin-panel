@@ -20,7 +20,7 @@
 						<div class="kt-aside__brand-logo">
 							<a href="index.html">
 								{{-- <img alt="Logo" src="assets/images/logo3.png" style="width: 30px; height: 30px; margin-left: 20px;" /> --}}
-<h1 style="padding:15px 15px; color:rgb(27, 140, 238);">E-Bazar</h1>
+<h1 style="padding:15px 15px; color:rgb(27, 140, 238);">PetMania</h1>
 
 							</a>
 						</div>
@@ -86,7 +86,7 @@
 								</li>
 
 
-								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-telegram-logo"></i><span class="kt-menu__link-text">Categories</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+								{{-- <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-telegram-logo"></i><span class="kt-menu__link-text">Categories</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 									<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 										<ul class="kt-menu__subnav">
 											<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="{{ route('admin.view-category') }}" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Categories List</span></a>
@@ -96,7 +96,7 @@
 											</li>
 										</ul>
 									</div>
-								</li>
+								</li> --}}
 
 
 
@@ -112,7 +112,7 @@
 									</div>
 								</li>
 
-								<li class="kt-menu__item " aria-haspopup="true"><a target="_blank" href="{{route('admin.manage-ad')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Manage Ads</span></a></li>
+								<li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin.manage-ad')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Manage Ads</span></a></li>
 
 
                                 {{-- <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-telegram-logo"></i><span class="kt-menu__link-text">Manage Ads</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>

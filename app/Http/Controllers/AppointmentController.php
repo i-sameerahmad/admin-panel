@@ -22,7 +22,10 @@ class AppointmentController extends Controller
     {
         //
     }
-
+public function getappointments(){
+    $apps = Appointment::all();
+    return $apps;
+}
     /**
      * Store a newly created resource in storage.
      */
@@ -32,11 +35,13 @@ class AppointmentController extends Controller
             'description' => 'required|string',
             'date' => 'required|string',
             'userId' => 'required|string',
+            'user_name' => 'required|string',
             'doctorId' => 'required|integer',
 
         ]);
         $appointment = new Appointment();
         $appointment->user_id = $validatedData['userId'];
+        $appointment->user_name = $validatedData['user_name'];
         $appointment->doc_id = $validatedData['doctorId'];
         $appointment->description = $validatedData['description'];
         $appointment->date = $validatedData['date'];

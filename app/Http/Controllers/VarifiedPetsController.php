@@ -23,7 +23,15 @@ class VarifiedPetsController extends Controller
         //   dd($products);
 
     }
+public function getverifiedpets(){
+    $pets = varifiedPets::all();
+return $pets;
+}
 
+public function getvarifiedpet($id){
+    $pet = varifiedPets::where('id', $id)->get();
+    return $pet;
+}
     public function list()
     {
          $pets = varifiedPets::all();
