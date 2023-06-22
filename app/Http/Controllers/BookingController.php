@@ -35,7 +35,34 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'pet_id' => 'required',
+            'user_id' => 'required',
+            'price' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'paymentMethod' => 'required',
+        ]);
+
+        // Create an order
+        $order = Booking::create([
+            'price' => $request->input('price'),
+            'pet_id' => $request->input('pet_id'), // You can calculate the total here
+             // You can calculate the total here
+            'user_id' => $request->input('user_id'),
+            'name' => $request->input('name'), // Assuming you have authentication set up
+            'email' => $request->input('email'), // Assuming you have authentication set up
+            'phone' => $request->input('phone'), // Assuming you have authentication set up
+            'address' => $request->input('address'), // Assuming you have authentication set up
+            'paymentMethod' => $request->input('paymentMethod'), // Assuming you have authentication set up
+             // Assuming you have authentication set up
+        ]);
+
+
+
+        return response()->json(['message' => 'Order placed successfully']);
     }
 
     /**

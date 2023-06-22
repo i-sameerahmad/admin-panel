@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('paymentMethod');
+            $table->string('status')->default('Processed');
             $table->timestamps();
         });
     }

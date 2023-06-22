@@ -26,7 +26,10 @@ class PetController extends Controller
         $products=Pet::all();
         return $products;
     }
-
+public function getMyPets($id){
+    $product = Pet::where('user_id', $id)->get();
+        return $product;
+}
     public function getPet($id){
         // dd($id);
         $product = Pet::where('id', $id)->get();
