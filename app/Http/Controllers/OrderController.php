@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\OrderItems;
 use Illuminate\Http\Request;
 
@@ -71,6 +72,9 @@ class OrderController extends Controller
                 'order_id' => $order->id,
                 'product_id' => $productId,
             ]);
+            $product = Product::findOrFail($productId);
+        $product->quantity -= $quantities[$index];
+        $product->save();
         }
 
         return response()->json(['message' => 'Order placed successfully']);
@@ -90,9 +94,10 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
-        //
+        $order = Order::find($id);
+        return view('admin-pages.edit-order',compact('order'));
     }
 
     /**
@@ -102,9 +107,13 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $id)
     {
-        //
+        $order = Order::find($id);
+        $order->status = $request->input('status');
+        $order->save();
+        return redirect(route('admin.manage-orders'));
+
     }
 
     /**

@@ -90,7 +90,7 @@ margin-top: 10px;
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="logo">
-<img class="img" src="/images/logof.png" alt="">
+<img class="img" src="//assets/images/log1.png" alt="">
       </div>
 <form action="{{ route('user.search') }}" enctype="multipart/form-data" method="get">
   @csrf

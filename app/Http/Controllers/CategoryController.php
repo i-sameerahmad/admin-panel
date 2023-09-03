@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,8 +15,18 @@ class CategoryController extends Controller
      */
 
     public function dashboard(){
-        return view('admin-pages.index');                         
-        
+        $data = Order::all();
+$numOrders = count($data); // Get the number of orders
+
+$totalSum = 0; // Initialize the sum variable
+
+foreach ($data as $order) {
+    $totalSum += $order->total; // Add the "total" attribute of each order to the sum
+}
+// dd($numOrders);
+// dd($totalSum);
+        return view('admin-pages.index',compact('numOrders','totalSum'));
+
             }
     public function index()
     {
@@ -49,7 +60,7 @@ class CategoryController extends Controller
 
         // if( $request->hasFile('image')){
         //     $file=$request->file('image');
-            
+
         //     $data['image'] = $file->getClientOriginalName();
         //     $file->move('uploads',$file->getClientOriginalName());
         // }
@@ -97,7 +108,7 @@ class CategoryController extends Controller
 
         $category->update($data);
         return redirect(route('admin.view-category'));
-    
+
     }
 
     /**

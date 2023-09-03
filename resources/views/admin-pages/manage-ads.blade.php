@@ -58,7 +58,7 @@
                         <th>Price</th>
                         <th>Category</th>
                         <th>Certification</th>
-                        <th>Image</th>
+                        {{-- <th>Image</th> --}}
                         <th>Status</th>
                         <th>Approve</th>
 
@@ -75,7 +75,7 @@
                         <td>{{ $pet->price }}</td>
                         <td>{{ $pet->category }}</td>
                         <td>{{ $pet->certificate }}</td>
-                        <td><img style="width: 100px; height:80px; " src="{{$pet->image}}"/></td>
+                        {{-- <td><img style="width: 100px; height:80px; " src="{{$pet->image}}"/></td> --}}
                         <td>{{ $pet->status }}</td>
 
                         <td nowrap>

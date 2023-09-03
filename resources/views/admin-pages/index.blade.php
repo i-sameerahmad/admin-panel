@@ -16,7 +16,7 @@
             <div class="kt-portlet kt-portlet--height-fluid">
                 <div class="kt-portlet__head kt-portlet__head--noborder">
                     <div class="kt-portlet__head-label">
-                        <h3 class="kt-portlet__head-title">Author Sales</h3>
+                        <h3 class="kt-portlet__head-title">Sales</h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-toolbar-wrapper">
@@ -68,7 +68,7 @@
                 <div class="kt-portlet__body kt-portlet__body--fluid">
                     <div class="kt-widget-19">
                         <div class="kt-widget-19__title">
-                            <div class="kt-widget-19__label"><small>$</small>64M</div>
+                            <div class="kt-widget-19__label"><small></small>Rs {{ $totalSum }}</div>
                             <img class="kt-widget-19__bg" src="assets/media/misc/iconbox_bg.png" alt="bg" />
                         </div>
                         <div class="kt-widget-19__data">
@@ -101,7 +101,7 @@
 
             <!--end::Portlet-->
         </div>
-       
+
         <div class="col-lg-6 col-xl-4 order-lg-1 order-xl-1">
 
             <!--begin::Portlet-->
@@ -160,7 +160,7 @@
                 <div class="kt-portlet__body kt-portlet__body--fluid">
                     <div class="kt-widget-20">
                         <div class="kt-widget-20__title">
-                            <div class="kt-widget-20__label">17M</div>
+                            <div class="kt-widget-20__label">{{$numOrders}}</div>
                             <img class="kt-widget-20__bg" src="assets/media/misc/iconbox_bg.png" alt="bg" />
                         </div>
                         <div class="kt-widget-20__data">
@@ -261,16 +261,16 @@
 
             <!--end::Portlet-->
         </div>
-      
+
     </div>
 
     <!--end::Row-->
 
     <!--begin::Row-->
     <div class="row">
-       
-        
-      
+
+
+
         <div class="col-lg-12 col-xl-4 order-lg-2 order-xl-1">
 
             <!--begin::Portlet-->

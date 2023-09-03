@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Doctor;
+
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -14,7 +16,18 @@ class AppointmentController extends Controller
     {
         //
     }
-
+    public function fetch($id) {
+        $doc = Doctor::where('user_id', $id)->first();
+        if ($doc) {
+            $d = $doc->id;
+            $apps = Appointment::where('status', 'done')->where('doc_id', $d)->get();
+            return $apps;
+        } else {
+            // Handle the case when no doctor is found for the given user_id
+            // For example, you can return an empty array or null
+            return [];
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -23,7 +36,7 @@ class AppointmentController extends Controller
         //
     }
 public function getappointments(){
-    $apps = Appointment::all();
+    $apps = Appointment::where('status', 'pending')->get();
     return $apps;
 }
     /**
@@ -78,9 +91,11 @@ public function getappointments(){
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Appointment $appointment)
+    public function update($id)
     {
-        //
+        $app = Appointment::find($id);
+        $app->status = 'done';
+        $app->save();
     }
 
     /**

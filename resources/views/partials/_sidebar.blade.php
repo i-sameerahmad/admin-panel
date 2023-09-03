@@ -18,7 +18,7 @@
 					<!-- begin::Aside Brand -->
 					<div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
 						<div class="kt-aside__brand-logo">
-							<a href="index.html">
+							<a href="{{route('admin.dashboard')}}">
 								{{-- <img alt="Logo" src="assets/images/logo3.png" style="width: 30px; height: 30px; margin-left: 20px;" /> --}}
 <h1 style="padding:15px 15px; color:rgb(27, 140, 238);">PetMania</h1>
 
@@ -143,20 +143,6 @@
 									</div>
 								</li> --}}
 
-
-
-								<li class="kt-menu__section ">
-									<h4 class="kt-menu__section-text">Mail</h4>
-									<i class="kt-menu__section-icon flaticon-more-v2"></i>
-								</li>
-								<li class="kt-menu__item " aria-haspopup="true"><a target="_blank" href="https://keenthemes.com/keen/preview/demo1/builder.html" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Inbox</span></a></li>
-
-
-								<li class="kt-menu__section ">
-									<h4 class="kt-menu__section-text">Customers</h4>
-									<i class="kt-menu__section-icon flaticon-more-v2"></i>
-								</li>
-								<li class="kt-menu__item " aria-haspopup="true"><a target="_blank" href="customers" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-layers-1"></i><span class="kt-menu__link-text">View Customers</span></a></li>
 
 								<li class="kt-menu__section ">
 									<h4 class="kt-menu__section-text">Admin</h4>

@@ -63,3 +63,8 @@ Route::get('getmessages/{id}/{rid}', [MessageController::class, 'list']);
 Route::post('addAppointment', [AppointmentController::class, 'store']);
 Route::post('booking', [BookingController::class, 'store']);
 Route::get('getappointments', [AppointmentController::class, 'getappointments']);
+Route::get('getbookings/{id}', [BookingController::class, 'getbookings']);
+
+Route::post('doneapp/{id}', [AppointmentController::class, 'update']);
+Route::get('fetchdoneapp/{id}', [AppointmentController::class, 'fetch']);
+

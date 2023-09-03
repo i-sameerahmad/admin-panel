@@ -23,7 +23,7 @@ class PetController extends Controller
     }
     public function getPets()
     {
-        $products=Pet::all();
+        $products=Pet::where('status', 'approved')->get();
         return $products;
     }
 public function getMyPets($id){

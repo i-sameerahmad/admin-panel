@@ -42,8 +42,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('doctor-list', [DoctorController::class, 'list'])->name('admin.doctor-list');
     Route::get('add-pets', [VarifiedPetsController::class, 'index'])->name('admin.add-verified-pets');
     Route::get('pets-list', [VarifiedPetsController::class, 'list'])->name('admin.pets-list');
+    Route::get('edit-order/{id}', [OrderController::class, 'edit'])->name('admin.edit-order');
     Route::get('edit-pets/{id}', [VarifiedPetsController::class, 'edit'])->name('admin.edit-pets');
     Route::post('update-pets/{id}', [VarifiedPetsController::class, 'update'])->name('admin.update-pets');
+    Route::post('update-order/{id}', [OrderController::class, 'update'])->name('admin.update-order');
+
     Route::post('create-pet', [VarifiedPetsController::class, 'store'])->name('admin.create-pet');
     Route::get('delete-pet/{id}', [VarifiedPetsController::class, 'destroy'])->name('admin.delete-pet');
 
@@ -59,7 +62,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('update-doctor/{id}', [DoctorController::class, 'update'])->name('admin.update-doctor');
     Route::get('delete-doctor/{id}', [DoctorController::class, 'destroy'])->name('admin.delete-doctor');
 
-    Route::get('manage-orders', [AdminController::class, 'manageOrders']);
+    // Route::get('manage-orders', [AdminController::class, 'manageOrders'])->name('admin.manageOrders');
     Route::get('customers', [AdminController::class, 'customers']);
     Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
 

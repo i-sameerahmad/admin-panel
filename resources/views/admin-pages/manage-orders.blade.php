@@ -73,13 +73,13 @@
 
 
                     <td>
-                        <span class="badge badge-pill badge-primary">Primary</span>
+                        <span class="badge badge-pill badge-primary">{{ $order->status }}</span>
 
 
                     </td>
                     <td nowrap>
-                        <button type="button" class="btn btn-accent btn-icon"><i class="fa fa-pen"></i></button>&nbsp;
-                        <button type="button" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button>&nbsp;</td>
+                       <a href="edit-order/{{ $order->id }}"> <button type="button" class="btn btn-accent btn-icon"><i class="fa fa-pen"></i></button>&nbsp;</a>
+                        {{-- <button type="button" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button>&nbsp;</td> --}}
                 </tr>
                 @empty
                 No Data Found

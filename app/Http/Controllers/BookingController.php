@@ -19,7 +19,10 @@ $orders=Booking::all();
 // dd($pets);
         return view('admin-pages.booking', compact('orders'));
     }
-
+public function getbookings($id){
+$orders = Booking::where('user_id', $id)->get();
+return $orders;
+}
     /**
      * Show the form for creating a new resource.
      *

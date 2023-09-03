@@ -29,7 +29,7 @@
 <div class="alert alert-secondary" role="alert">
     <div style="display: flex ;">
 <h3 style="color: black; margin-left: 30px ;  font-size: 30px;">Users</h3>
-<a href="{{ route('admin.add-verified-pets') }}"><button style="margin-left: 400px ;" type="button" class="btn btn-primary btn-wide"><i class="fa fa-plus"></i>  Add </button></a>
+{{-- <a href="{{ route('admin.add-verified-pets') }}"><button style="margin-left: 400px ;" type="button" class="btn btn-primary btn-wide"><i class="fa fa-plus"></i>  Add </button></a> --}}
 
     </div>
 </div>
@@ -63,12 +63,16 @@
                     <tr>
                         <td>{{ $key+1 }}</td>
                         <td>{{ $users->name }}</td>
-                        <td>{{ $users->user_type }}</td>
-                        <td>{{ $users->email }}</td>
-                        <td>{{ $users->id }}</td>
-                         <td nowrap>
-                            <a href="approve/{{ $users->id }}"><button type="button" class="btn btn-accent btn-icon"><i class="fa fa-check"></i></button></a>&nbsp;
+                        <td>
+                            @if($users->user_type == 1)
+                                Admin
+                            @elseif($users->user_type == 2)
+                                User
+                            @elseif($users->user_type == 3)
+                                Doctor
+                            @endif
                         </td>
+                        <td>{{ $users->email }}</td>
                     </tr>
                     @empty
                     No Data Found
